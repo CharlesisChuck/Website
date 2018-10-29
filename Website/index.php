@@ -1,5 +1,7 @@
 <?php
 
+//DELETE ME
+
 
 //database initialization
 include("scripts/database-functions.php");
