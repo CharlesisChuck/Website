@@ -1,0 +1,14 @@
+							NEED DOCUMENT
+
+						Current List of Tasks
+
+	Class items and creators:
+
+		1.Need filter
+		2.Need seperation by status
+		3.Need active abilty to create content on press so can mimize windows
+		4.Need filter for class overview,completed and current
+		5.improved filter function
+		6. put all php requests into one file to speed up
+		7. do the same with all .js
+		8. put scripts in the footer
