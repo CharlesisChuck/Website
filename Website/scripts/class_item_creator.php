@@ -40,11 +40,18 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 								$notes = $row -> notes;
 								$status = $row -> status;
 
-								/*creates the visual item on page*/
+								if ($status == $filter) {
+									
+									CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category);
 
-								PrintItemByStatus($status,$notes,$description,$title,$type,$url_id,$category);
+									ItemButton($list_id,$db);
 
-								$content = 1; //Content found!
+									NoteCreator($list_id,$db);
+								} else{
+										//DO NOTHING
+								}
+
+								$content = "Content Found"; //Content found!
 							}
 					}
 				}
@@ -63,7 +70,7 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 	}
 	if($content == NULL)
 	{
-		echo "add content!";
+		echo 'Go to: BLANK and click "Add Content" to see stuff here!';
 	}
 
 	 $sidebar = FindSideBar($page_category);
@@ -121,15 +128,6 @@ $other = 'other';
 }
 
 
-function CreateItemDefault($status,$notes,$description,$title,$type,$url_id,$category)
-{
-
-}
-function CreateItemComplete($status,$notes,$description,$title,$type,$url_id,$category)
-{
-
-}
-
 function FindSideBar($page_category)
 {
 	$sidebar = "sidebar-home";
@@ -143,24 +141,54 @@ function FindSideBar($page_category)
 	return $sidebar;
 }
 
-function PrintItemByStatus($status,$notes,$description,$title,$type,$url_id,$category)
+
+function ItemButton($list_id,$db)
 {
-	if($status == 'default')
-	{
-		echo "DEFAULT";
-		CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category);
+echo'
+<form method="post">
+<strong>Current Status: </strong>
+Current: <input type="radio" name="MyUpdateStatus" value="current">
+Finished: <input type="radio" name="MyUpdateStatus" value="completed">
+Default: <input type="radio" name="MyUpdateStatus" value="default">
+<input type="submit">
+</form>
+';
 
-	} else if($status == 'current')
-	{
-		echo "CURRENT";
-		CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category);
+$MyUpdateStatus = "not set";
+if (empty($_POST["MyUpdateStatus"])) {
+    } else
+    {
+    	
+        $MyUpdateStatus = $_POST['MyUpdateStatus'];
+    }
 
-	} else if($status == 'completed')
-	{
-		echo "COMPLETED";
-		CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category);
-	}
+UpdateStatus($MyUpdateStatus,$list_id,$db);
 
-	
 }
+
+
+
+function NoteCreator($list_id,$db)
+{
+	echo '
+<form method="post">
+<form method="post">
+<strong>Current Status: </strong>
+<textarea name="notes"></textarea>
+<input type="submit">
+</form>
+</form>';
+
+$notes = "not set";
+if (empty($_POST["notes"])) {
+    } else
+    {
+    	
+        $notes = $_POST['notes'];
+    }
+
+
+	UpdateNotes($notes,$list_id,$db);
+}
+
 ?>

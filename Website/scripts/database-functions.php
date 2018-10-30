@@ -46,4 +46,39 @@ function GetUserID($username,$db)
 	return $user_id;
 }
 
+
+function UpdateStatus($updatestatus,$list_id,$db)
+{
+
+	if($updatestatus == "not set")
+    {
+
+    } else {
+
+	$sqluserclasses = "UPDATE user_classes SET status ='".$updatestatus."' WHERE list_id = ".$list_id;
+
+	if ($db->query($sqluserclasses) === TRUE) {
+	} else {
+    echo "Error: " . $sqluserclasses . "<br>" . $db->error;
+	}
+    }
+}
+
+function UpdateNotes($notes,$list_id,$db)
+{
+
+	if($notes == "not set")
+    {
+
+    } else {
+
+	$sqluserclasses = "UPDATE user_classes SET notes ='".$notes."' WHERE list_id = ".$list_id;
+
+	if ($db->query($sqluserclasses) === TRUE) {
+	} else {
+    echo "Error: " . $sqluserclasses . "<br>" . $db->error;
+	}
+    }
+}
+
 ?>
