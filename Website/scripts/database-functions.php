@@ -1,14 +1,11 @@
 <?php
 
-
-
-function InsertForm($logged_in_user_id,$db,$urlfilter,$title,$description,$status,$type,$category)
+function InsertSQLForm($logged_in_user_id,$db,$urlfilter,$title,$description,$status,$type,$category)
 {
 	if($urlfilter != NULL)//DELETE ME
 	{
 	$sqlclasses = "INSERT INTO `classes`(`list_id`, `url_id`, `type`, `category`) VALUES (NULL,'$urlfilter','$type','$category')";
 	if ($db->query($sqlclasses) === TRUE) {
-    echo "New record created successfully";
 	} else {
     echo "Error: " . $sqlclasses . "<br>" . $db->error;
 	}
@@ -20,12 +17,11 @@ function InsertForm($logged_in_user_id,$db,$urlfilter,$title,$description,$statu
 		while($row = $result_id -> fetch_object() )
 		{//checking what category we are in currently
 			$list_id = $row -> list_id;
-			echo $list_id;
 		}
 
 	$sqluserclasses = "INSERT INTO `user_classes`(`list_id`, `user_id`, `title`, `description`, `notes`, `status`) VALUES ($list_id,'$logged_in_user_id','$title','$description',NULL,'$status')";
 	if ($db->query($sqluserclasses) === TRUE) {
-    echo "New record created successfully";
+    echo "YOUR UPDATE WAS SUCESSFUL!";
 	} else {
     echo "Error: " . $sqluserclasses . "<br>" . $db->error;
 	}
@@ -48,27 +44,6 @@ function GetUserID($username,$db)
 		}
 
 	return $user_id;
-}
-
-
-$dbConnect = array(
-	'server' => 'localhost',
-	'user' => 'root',
-	'pass' => '',
-	'name' => 'first_website'
-);
-
-$db = new mysqli(
-	$dbConnect['server'], 
-	$dbConnect['user'], 
-	$dbConnect['pass'], 
-	$dbConnect['name']
-);
-
-/*remove all of debug lines for production due to security*/
-if(($db -> connect_errno) > 0)
-{
-	exit("<br><strong>DATABASE ERROR</strong><br>" . $db->connect_error);
 }
 
 ?>

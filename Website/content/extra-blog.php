@@ -4,5 +4,5 @@
 </div>
 
 
-<?php include_once($sidebar . '.php'); ?>
+<?php include($sidebar . '.php'); ?>
 <div class="clear"></div>

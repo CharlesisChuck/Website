@@ -5,7 +5,7 @@
   <a href="#">Learn</a>
   <ul class="submenu">
    <li><a href="?page=learn-creator&page_category=other">Other</a></li>
-   <li><a href="?page=learn-creator&page_category=books">Books</a></li>
+   <li><a href="?page=learn-creator&page_category=book">Books</a></li>
    <li><a href="?page=learn-creator&page_category=buissness">Buissness</a></li>
    <li><a href="?page=learn-creator&page_category=computer-science">Computer Science</a></li>
    <li><a href="?page=learn-creator&page_category=physics">Physics</a></li>

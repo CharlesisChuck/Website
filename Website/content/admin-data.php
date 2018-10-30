@@ -53,10 +53,10 @@
 </table>
 
 </div>
-<?php include_once($sidebar . '.php'); 
+<?php include($sidebar . '.php'); 
 
 //DELETE ME
-include_once("scripts/database-functions.php");
+include("scripts/database-functions.php");
 $username = 'CharlesCurt';
 $userid = GetUserID($username,$db);
 echo "USER_ID";

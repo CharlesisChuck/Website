@@ -1,10 +1,7 @@
 <?php
 
-//DELETE ME
-
-
 //database initialization
-include("scripts/database-functions.php");
+include("scripts/database-access.php");
 
 // if (isset($_POST['logged_in_user_id']))
 // {

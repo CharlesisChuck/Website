@@ -1,16 +1,32 @@
 <?php
-include("scripts/database-functions.php");
-function FilterURL($url)
-{
 
-  return $url;
+include("scripts/database-functions.php");
+
+/////////////////////////////////////////////////////////////////////////
+function FilterURL($url,$type)
+{
+  $filtered_url = "";
+ 
+  if($type == "yt-playlist")
+{
+  $filtered_url = strstr($url, 'list=', false);
+  $filtered_url = str_replace("list=","","$filtered_url");
+
+} else if ($type == "yt-video")
+{
+  $filtered_url = strstr($url, 'watch?v', false);
+  $filtered_url = str_replace("watch?v=","","$filtered_url");
+} 
+
+  return $filtered_url;
 }
 
+
+/////////////////////////////////////////////////////////////////////////
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
-  echo $data;
   return $data;
 }
 
@@ -80,17 +96,12 @@ function test_input($data) {
     }
   }
 
-  $urlfilter = FilterURL($url);
-  echo $urlfilter; 
-  echo $title;
-  echo $description;
-  echo $status;
-  echo $type;
-  echo $category;
+  $filteredurl = FilterURL($url,$type);
   
   $logged_in_user_id = 1; //DELETE ME
   
-  InsertForm($logged_in_user_id,$db,$urlfilter,$title,$description,$status,$type,$category);
+  InsertSQLForm($logged_in_user_id,$db,$filteredurl,$title,$description,$status,$type,$category);
+/////////////////////////////////////////////////////////////////////////
 ?>
 
 

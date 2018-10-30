@@ -1,11 +1,10 @@
 <div class="left-col">
 
 <?php
-include_once("scripts/form_learn.php");
-
+include("scripts/form_learn.php");
 ?>
 </div>
 
 
-<?php include_once($sidebar . '.php'); ?>
+<?php include($sidebar . '.php'); ?>
 <div class="clear"></div>
