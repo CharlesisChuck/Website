@@ -73,12 +73,27 @@ function UpdateNotes($notes,$list_id,$db)
     } else {
 
 	$sqluserclasses = "UPDATE user_classes SET notes ='".$notes."' WHERE list_id = ".$list_id;
-
 	if ($db->query($sqluserclasses) === TRUE) {
 	} else {
     echo "Error: " . $sqluserclasses . "<br>" . $db->error;
 	}
     }
+}
+
+function GetPreviousNotes($list_id,$db)
+{
+	$sqlpreviousnotes = "SELECT * FROM user_classes";
+	$result_notes = $db -> query($sqlpreviousnotes);
+		while($row = $result_notes -> fetch_object() )
+		{//checking what category we are in currently
+			$list_id_check = $row -> list_id;
+			$notes = $row -> notes;
+			if ($list_id_check == $list_id) {
+				return $notes;
+				break;
+			}
+		}
+
 }
 
 ?>

@@ -1,5 +1,4 @@
 <?php 
-
 function FilterData($db,$logged_in_user_id,$page_category,$filter)
 {
 	$content = NULL;
@@ -93,13 +92,13 @@ $other = 'other';
 	{
 		echo ("<h3>" . $title ."</h3> <br/>");
 		echo ('<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br/>');
-		echo("<p>" . $description . "</p> <br/>");
+		echo("<p>" . $description . "</p>");
 
 	}else if($type==$video)
 	{
 		echo ("<h3>" . $title ."</h3> <br/>");
 		echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-		echo("<p>" . $description . "</p> <br/>");
+		echo("<p>" . $description . "</p>");
 
 	}else if($type==$document)
 	{
@@ -170,14 +169,14 @@ UpdateStatus($MyUpdateStatus,$list_id,$db);
 
 function NoteCreator($list_id,$db)
 {
+	$previousNotes = GetPreviousNotes($list_id,$db);
 	echo '
+<strong>Notes: </strong>
 <form method="post">
-<form method="post">
-<strong>Current Status: </strong>
-<textarea name="notes"></textarea>
+<textarea rows="5" cols="75" name="notes">'.$previousNotes.'</textarea>
 <input type="submit">
 </form>
-</form>';
+';
 
 $notes = "not set";
 if (empty($_POST["notes"])) {
@@ -186,9 +185,10 @@ if (empty($_POST["notes"])) {
     	
         $notes = $_POST['notes'];
     }
-
-
 	UpdateNotes($notes,$list_id,$db);
+
+
+
 }
 
 ?>
