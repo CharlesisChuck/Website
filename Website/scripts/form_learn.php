@@ -98,7 +98,11 @@ function test_input($data) {
 
   $filteredurl = FilterURL($url,$type);
   
-  $logged_in_user_id = 1; //DELETE ME
+  $logged_in_user_id = $_SESSION['idlogin'];
+  if(($logged_in_user_id == NULL))
+  {
+    $logged_in_user_id = 0;
+  }
   
   InsertSQLForm($logged_in_user_id,$db,$filteredurl,$title,$description,$status,$type,$category);
 /////////////////////////////////////////////////////////////////////////

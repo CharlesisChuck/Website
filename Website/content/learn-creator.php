@@ -28,7 +28,13 @@ include("scripts/class_item_creator.php");
 include("scripts/database-access.php");
 include("scripts/database-functions.php");
 
-$logged_in_user_id = 1;
+
+  $logged_in_user_id = $_SESSION['idlogin'];
+  if(($logged_in_user_id == NULL))
+  {
+    $logged_in_user_id = 0;
+  }
+
 $sidebar = FilterData($db,$logged_in_user_id,$page_category,$filter);
 ?>
 

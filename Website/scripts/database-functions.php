@@ -30,21 +30,21 @@ function InsertSQLForm($logged_in_user_id,$db,$urlfilter,$title,$description,$st
 
 
 
-function GetUserID($username,$db)
-{
-	$sql_user_id = "SELECT * FROM users ORDER BY user_id ASC";
-	$result_user = $db -> query($sql_user_id);
-		while($row = $result_user -> fetch_object() )
-		{//checking what category we are in currently
-			$user_id = $row -> user_id;
-			$username_check = $row -> user_name;
-			if ($username_check == $username) {
-				break;
-			}
-		}
+// function GetUserID($username,$db)
+// {
+// 	$sql_user_id = "SELECT * FROM users ORDER BY user_id ASC";
+// 	$result_user = $db -> query($sql_user_id);
+// 		while($row = $result_user -> fetch_object() )
+// 		{//checking what category we are in currently
+// 			$user_id = $row -> user_id;
+// 			$username_check = $row -> user_name;
+// 			if ($username_check == $username) {
+// 				break;
+// 			}
+// 		}
 
-	return $user_id;
-}
+// 	return $user_id;
+// }
 
 
 function UpdateStatus($updatestatus,$list_id,$db)
@@ -95,5 +95,34 @@ function GetPreviousNotes($list_id,$db)
 		}
 
 }
+
+function CreateNewUser($input_username,$db)
+{
+	$sqlusername = "INSERT INTO `users`(`user_id`, `user_name`, `password`) VALUES (NULL,'$input_username','password')";
+
+	if ($db->query($sqlusername) === TRUE) {
+		echo "username created! Welcome!";
+	} else {
+    echo "Error: " . $sqlusername . "<br>" . $db->error;
+	}
+
+}
+
+function GetUserId($username,$db)
+{
+	$sqlusername = "SELECT * FROM `users` WHERE 1" ;
+	$result_notes = $db -> query($sqlusername);
+		while($row = $result_notes -> fetch_object() )
+		{
+			$user_id = $row -> user_id;
+			$username_check = $row -> user_name;
+			if ($username_check == $username) {
+				return $user_id;
+				
+			}
+		}
+
+}
+
 
 ?>

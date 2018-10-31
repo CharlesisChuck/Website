@@ -46,6 +46,8 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 									ItemButton($list_id,$db);
 
 									NoteCreator($list_id,$db);
+
+									//DocumentUploader($list_id,$db);
 								} else{
 										//DO NOTHING
 								}
@@ -190,5 +192,14 @@ if (empty($_POST["notes"])) {
 
 
 }
+
+// DocumentUploader($list_id,$db)
+// {
+
+	
+// }
+
+
+
 
 ?>

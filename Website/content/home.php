@@ -1,4 +1,8 @@
 <div class="left-col">
+
+  <?php
+  
+  ?>
   <h2 class="content-heading">About This Website</h2>
   <p>This is a hub for <a href="?page=#" class="#"><strong>knowledge</strong></a>, <a href="?page=#" class="#"><strong>Orginization</strong></a>, <a href="?page=#" class="#"><strong>Great People</strong></a>, and a <a href="?page=#" class="#"><strong>portfolio</strong></a> </p>
   

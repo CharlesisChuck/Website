@@ -1,4 +1,4 @@
-<h2 class="content-heading">Contacts</h2>
+<h2 class="content-heading">Contact</h2>
 <div class="status_message"> </div>
 <form action="#" method="post" id="contact_form">
   <h3 class="fn org small-heading">Charles Curt</h3>

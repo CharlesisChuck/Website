@@ -55,13 +55,6 @@
 </div>
 <?php include($sidebar . '.php'); 
 
-//DELETE ME
-include("scripts/database-functions.php");
-$username = 'CharlesCurt';
-$userid = GetUserID($username,$db);
-echo "USER_ID";
-echo $userid;
-
 
 ?>
 <div class="clear"></div>

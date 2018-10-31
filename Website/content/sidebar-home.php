@@ -1,10 +1,49 @@
-<div class="sidebar">
+    <div class="sidebar">
+
+<?php
+  include_once("scripts/database-access.php");
+  include_once("scripts/database-functions.php");
+
+  function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+
+  $username = "";
+  $useridErr = "";
+  $logged_in_user_id = "user name not found";
+  if (empty($_POST["userid"])) {
+    } else {
+      $username = test_input($_POST["userid"]);
+      if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
+      $useridErr = "Only letters and white space allowed"; 
+    }
+    }
+
+    $username = GetUserId($username,$db);
+    if($username != "")
+    {
+    	$useridErr = "You are logged in";
+      $_SESSION['idlogin'] = $username;
+
+    }
+
+  ?>
+
+
   <div class="module">
-    <h3 class="module-title">Woof</h3>
-    <p><a href="?#" ><img src="#" width="220" height="300" alt="My dog should be here " /></a></p>
-  </div>
-  <div class="module">
-    <h3 class="module-title">Your Schedule</h3>
-    <p>(This will contain your daily schedule)</p>
+    <h3 class="module-title">Input Username</h3>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>">
+	User ID: <input type="userid" name="userid">
+	<span class="error"><?php echo $useridErr;?></span>
+
+	<br><br/>
+	<input type="submit">
+	<br><br/>
+	</form>
   </div>
   
+

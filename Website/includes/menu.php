@@ -55,9 +55,9 @@
 <li class="menu-link">
   <a href="#">Admin</a> 
   <ul class="submenu">
-    <li><a href="?page=admin-edit">Edit Content</a></li>
     <li><a href="?page=admin-data">Data</a></li>
-    <li><a href="?page=admin-login">Login</a></li>
+    <li><a href="?page=admin-edit">Add Content</a></li>
+    <li><a href="?page=admin-login">Create UserID</a></li>
   </ul>
 </li>
 

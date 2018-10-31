@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //database initialization
 include("scripts/database-access.php");
 
