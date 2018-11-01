@@ -1,8 +1,10 @@
 <?php 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function FilterData($db,$logged_in_user_id,$page_category,$filter)
 {
 	$content = NULL;
-	
 
 	$sql_user = "SELECT * FROM users";
 	$result_user = $db -> query($sql_user);
@@ -39,17 +41,12 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 								$notes = $row -> notes;
 								$status = $row -> status;
 
-								if ($status == $filter) {
-									
-									CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category);
+								if (($status == $filter)) {
 
-									ItemButton($list_id,$db);
+									ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,$list_id,$db);
 
-									NoteCreator($list_id,$db);
-
-									//DocumentUploader($list_id,$db);
 								} else{
-										//DO NOTHING
+										
 								}
 
 								$content = "Content Found"; //Content found!
@@ -71,13 +68,15 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 	}
 	if($content == NULL)
 	{
-		echo 'Go to: BLANK and click "Add Content" to see stuff here!';
+		echo "There's nothing here yet <br><br/>";
+		echo 'Go to: "Admin" >> "Add Content" to add your content!';
 	}
 
 	 $sidebar = FindSideBar($page_category);
 	 return $sidebar;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category)
 {
@@ -92,15 +91,12 @@ $other = 'other';
 //need buttons here for when I want to tell it to make current or completed.
 	if($type==$playlist)
 	{
-		echo ("<h3>" . $title ."</h3> <br/>");
+		
 		echo ('<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br/>');
-		echo("<p>" . $description . "</p>");
 
 	}else if($type==$video)
 	{
-		echo ("<h3>" . $title ."</h3> <br/>");
 		echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-		echo("<p>" . $description . "</p>");
 
 	}else if($type==$document)
 	{
@@ -128,6 +124,7 @@ $other = 'other';
 
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function FindSideBar($page_category)
 {
@@ -142,6 +139,7 @@ function FindSideBar($page_category)
 	return $sidebar;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function ItemButton($list_id,$db)
 {
@@ -167,7 +165,7 @@ UpdateStatus($MyUpdateStatus,$list_id,$db);
 
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function NoteCreator($list_id,$db)
 {
@@ -193,13 +191,61 @@ if (empty($_POST["notes"])) {
 
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function DeleteButton($list_id,$db)
+{
+
+echo'
+<form method="post">
+Delete Item?  yes:<input type="radio" name="DeleteItem" value="Delete">
+<input type="submit">
+</form>
+';
+
+$MyUpdateStatus = "not set";
+if (empty($_POST["MyUpdateStatus"])) {
+    } else
+    {
+    	
+        $MyUpdateStatus = $_POST['MyUpdateStatus'];
+    }
+
+UpdateStatus($MyUpdateStatus,$list_id,$db);
+
+}
+
+
+////////////////////////////////////////////////////////////
+
 // DocumentUploader($list_id,$db)
 // {
 
 	
 // }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,$list_id,$db)
+{
+
+	echo '<div class="item-small"><strong><a>'.$title.'</a>:</strong>'.$description.'</div>';
+
+    echo '<div class="item-content">';
+	
+	CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category);
+	ItemButton($list_id,$db);
+	NoteCreator($list_id,$db);
+	DeleteButton($list_id,$db);
+	echo '</div>';
+	echo '<script>
+	$(document).ready(function(){$(".item-content").hide();   
+	$( "div.item-small" ).click(function() {
+    $(this).next().toggle();
+	});
+	});
+	</script>';				
+
+}
 
 
 ?>

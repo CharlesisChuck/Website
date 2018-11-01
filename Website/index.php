@@ -3,36 +3,10 @@ session_start();
 //database initialization
 include("scripts/database-access.php");
 
-// if (isset($_POST['logged_in_user_id']))
-// {
-//     $logged_in_user_id = $_POST['logged_in_user_id'];
-//     $sql = "SELECT * FROM `users` WHERE `user_name` = 'logged_in_user_id' ";
-//     echo 'user_id';
-//     echo $sql;
-// }
-
-// if (isset($_POST['password']))
-// {
-//     $logged_in_user_id = $_POST['logged_in_user_id'];
-//     $sql = "SELECT * FROM `` WHERE `password` = 'password' ";
-//     echo "password";
-//     echo $sql;
-// }
-    
-
 echo '<link rel="stylesheet" type="text/css" href="css/jbc.css" <noscript>
         <link rel="stylesheet" href="css/jbc-noscript.css" />';
 
-
-//logging in, security and saving visits
-//include("scripts/login-visits.php");
-
 $filter = 0;
-
-// if (isset($_GET['page']))
-// {
-//     $page = $_GET['page'];
-// }   
 $page = $_GET['page'];
 include("scripts/seo.php");
 ?>
@@ -48,7 +22,7 @@ include("scripts/seo.php");
 
         
         </noscript>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <title>
             <?php 
             echo $mTitle 

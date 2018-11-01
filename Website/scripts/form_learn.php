@@ -103,8 +103,13 @@ function test_input($data) {
   {
     $logged_in_user_id = 0;
   }
-  
+  if($logged_in_user_id == 0)
+  {
+    echo 'YOU ARE NOT SIGNED IN, NO CONTENT ADDED';
+  } else
+  { 
   InsertSQLForm($logged_in_user_id,$db,$filteredurl,$title,$description,$status,$type,$category);
+  }
 /////////////////////////////////////////////////////////////////////////
 ?>
 

@@ -11,19 +11,20 @@
 
 <input type="submit">
 
-<br><br/>
 </form>
 
-
 <?php
+echo 'Filter: ';
 if (empty($_POST["filter"])) {
+    echo 'none';
     } else
     {
     	$filter = $_POST['filter'];
+      echo $filter;
     }
 
 $page_category = $_GET['page_category'];
-
+echo '<br><br/>';
 include("scripts/class_item_creator.php");
 include("scripts/database-access.php");
 include("scripts/database-functions.php");
@@ -37,7 +38,6 @@ include("scripts/database-functions.php");
 
 $sidebar = FilterData($db,$logged_in_user_id,$page_category,$filter);
 ?>
-
 
 </div>
 

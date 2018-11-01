@@ -11,8 +11,8 @@
   <h3 class="inner-heading">Overview</h3>
   <p> Take a look at the the various descriptions of what this website has to offer!</p>
   <ul>
-    <li><strong><a href="?page=blog" class="ajax">Classes</a>:</strong> an education hub of what I've learned and a way for others to do the same.</li>
-    <li><strong><a href="?page=blog-post" class="ajax2">Feynman</a>:</strong> a look at the great man who gave me my passion.</li>
+    <li><strong><a href="?page=blog">Classes</a>:</strong> an education hub of what I've learned and a way for others to do the same.</li>
+    <li><strong><a href="?page=blog-post">Feynman</a>:</strong> a look at the great man who gave me my passion.</li>
     <li><strong><a href="?page=testimonials" class="ajax3">Books</a>:</strong> area to explore books</li>
     <li><strong><a href="?page=article" class="ajax4">Other</a>:</strong> containing other future websites, music and my blog.</li>
     <li><strong><a href="?page=article-sb" class="ajax">Portfolio</a>:</strong> a resume and overview of myself.</li>
