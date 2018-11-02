@@ -1,7 +1,7 @@
 <div class="left-col">
 
 <p>Download my Resume: <a href="downloads/CharlesCurt.docx" alt="sorry"><strong>Word</strong></a>
-<a href="downloads/CharlesCurt.docx"><strong>PDF</strong></a>
+<a href="downloads/CharlesCurt.pdf"><strong>PDF</strong></a>
 </p>
 <p>Also, don't forget to check out great questions to ask me! <a href="?page=portfolio-questions"><strong>Questions</strong></a></p>
 
@@ -20,7 +20,7 @@
 <p>
 	<ul>
 		<li>
-			<p><strong>Software Engineer</strong>		NeurostimOAB 		Jul 2018 – Current</p>
+			<p><strong>Software Engineer</strong>		NeurostimOAB 		Jul 2018 – Oct 2018</p>
 			<p> <ul>
 				<li>Programmed IOT low energy BLE device on Qualcomm microprocessor</li>
 				<li>Automated software test design – created automated tests for software verification</li>

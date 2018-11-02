@@ -1,6 +1,20 @@
 <div class="left-col">
+<?php
+$page_category = $_GET['page_category'];
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>">
+if(($page_category == 'current'))
+{
+  $filter = 'current';
+
+
+}
+else if($page_category == 'completed')
+{
+  $filter = 'completed';
+}
+else
+{
+echo '<form method="post" >
 <strong>Filter By Status</strong>
 <select name="filter">
   <option value=""></option>
@@ -11,9 +25,8 @@
 
 <input type="submit">
 
-</form>
+</form>';
 
-<?php
 echo 'Filter: ';
 if (empty($_POST["filter"])) {
     echo 'none';
@@ -23,8 +36,9 @@ if (empty($_POST["filter"])) {
       echo $filter;
     }
 
-$page_category = $_GET['page_category'];
+
 echo '<br><br/>';
+}
 include("scripts/class_item_creator.php");
 include("scripts/database-access.php");
 include("scripts/database-functions.php");

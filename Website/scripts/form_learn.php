@@ -135,7 +135,7 @@ Unused: <input type="radio" name="status" value="default">
 <br><br/>
 Currently Using: <input type="radio" name="status" value="current">
 <br><br/>
-Finished: <input type="radio" name="status" value="finished">
+Finished: <input type="radio" name="status" value="completed">
 <span class="error"><?php echo $statusErr;?></span>
 <br><br/>
 
@@ -157,7 +157,7 @@ Finished: <input type="radio" name="status" value="finished">
   <option value=""></option>
   <option value="book">Book</option>
   <option value="feynman">Feynman</option>
-  <option value="electronics">Electronics</option>
+  <option value="webdev">Web Development</option>
   <option value="mechanics">Mechanics</option>
   <option value="physics">Physics</option>
   <option value="computer-science">Computer Science</option>

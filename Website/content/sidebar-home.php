@@ -23,17 +23,18 @@
     }
     }
 
-    $username = GetUserId($username,$db);
-    if($username != "")
+    $username_value = GetUserId($username,$db);
+    if($username_value != "")
     {
     	$useridErr = "You are logged in";
-      $_SESSION['idlogin'] = $username;
+      $_SESSION['idlogin'] = $username_value;
 
     }
 
   ?>
-
-
+  <div class="module">
+    <strong>Current User: <?php echo "$username"; ?></strong>
+  </div>
   <div class="module">
     <h3 class="module-title">Input Username</h3>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>">

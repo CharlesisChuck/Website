@@ -10,10 +10,10 @@
    <li><a href="?page=learn-creator&page_category=computer-science">Computer Science</a></li>
    <li><a href="?page=learn-creator&page_category=physics">Physics</a></li>
    <li><a href="?page=learn-creator&page_category=mechanics">Mechanics</a></li>
-   <li><a href="?page=learn-creator&page_category=electronics">Electronics</a></li>
-   <li><a href="?page=classes-completed">Completed Classes</a></li>
-   <li><a href="?page=classes-current">Current Classes</a></li>
-   <li><a href="?page=classes-overview">Overview</a></li>
+   <li><a href="?page=learn-creator&page_category=webdev">Web Development</a></li>
+   <li><a href="?page=learn-creator&page_category=completed">Completed Classes</a></li>
+   <li><a href="?page=learn-creator&page_category=current">Current Classes</a></li>
+   <li><a href="?page=learn-overview">Overview</a></li>
   </ul>
 </li>
 
@@ -47,8 +47,6 @@
   <a href="#">Extra</a> 
   <ul class="submenu">
     <li><a href="?page=extra-websites">Other Websites</a></li>
-    <li><a href="?page=extra-music">Favorite Music</a></li>
-    <li><a href="?page=extra-blog">Blog</a></li>
   </ul>
 </li>
 

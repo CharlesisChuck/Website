@@ -7,7 +7,7 @@
     <span class="country-name">United States</span> </div>
   <div class="adr-contacts"> <span class="tel"> <span class="type">Phone</span> 321-831-6888 </span><br/>
     <span>Email: <span class="email">curt.charles.ee@gmail.com</span> </span><br/>
-    <span>Website: <a class="url" href="http://www.THISWEBSITE.com">www.THISWEBSITE.com</a> </span> </div>
+    <span>Website: <a class="url" href="http://www.MyDataBorg.com">www.MyDataBorg.com</a> </span> </div>
   <p>
     <label>Your Name:<br />
       <input type="text" size="40" name="name" id="contact_name" />

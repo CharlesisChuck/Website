@@ -3,83 +3,83 @@
 switch($_GET['page']) {
 
 	case "learn-creator" : {
-		$mTitle = " | Learn";
+		$mTitle = "DataBorg | Learn";
 		$mKeys = "Physics,Feynman,Buissness,Electronics,Mechanics,Books";
 		$mDescr = "Access to all of the users classes and documents";
 	}
 	break;
 	case "feynman-who" : {
-		$mTitle = " | Feynman";
+		$mTitle = "DataBorg | Feynman";
 		$sidebar = "sidebar-feynman";
 	}
 	break;
 	case "feynman-teach" : {
-		$mTitle = " | Feynman";
+		$mTitle = "DataBorg | Feynman";
 		$sidebar = "sidebar-feynman";
 	}
 	break;
 	case "feynman-learn" : {
-		$mTitle = " | Feynman";
+		$mTitle = "DataBorg | Feynman";
 		$sidebar = "sidebar-feynman";
 	}
 	break;
 	case "portfolio-resume" : {
-		$mTitle = " | Resume";
+		$mTitle = "DataBorg | Resume";
 		$sidebar = "sidebar-portfolio";
 	}
 	break;
 	case "portfolio-about" : {
-		$mTitle = " | About";
+		$mTitle = "DataBorg | About";
 		$sidebar = "sidebar-portfolio";
 	}
 	break;
 	case "portfolio-references" : {
-		$mTitle = " | References";
+		$mTitle = "DataBorg | References";
 		$sidebar = "sidebar-portfolio";
 	}
 	break;
 	case "portfolio-questions" : {
-		$mTitle = " | Questions";
+		$mTitle = "DataBorg | Questions";
 		$sidebar = "sidebar-portfolio";
 	}
 	break;
 	case "schedule" : {
-		$mTitle = " | Schedule";
+		$mTitle = "DataBorg | Schedule";
 		$sidebar = "sidebar-schedule";
 	}
 	break;
 	case "extra-blog" : {
-		$mTitle = " | Blog";
+		$mTitle = "DataBorg | Blog";
 		$sidebar = "sidebar-extra";
 	}
 	break;
 	case "extra-websites" : {
-		$mTitle = " | Websites";
+		$mTitle = "DataBorg | Websites";
 		$sidebar = "sidebar-extra";
 	}
 	break;
 	case "admin-login" : {
-		$mTitle = " | Admin";
+		$mTitle = "DataBorg | Admin";
 		$sidebar = "sidebar-admin";
 	}
 	break;
 	case "admin-data" : {
-		$mTitle = " | Admin";
+		$mTitle = "DataBorg | Admin";
 		$sidebar = "sidebar-admin";
 	}
 	break;
 	case "admin-edit" : {
-		$mTitle = " | Admin";
+		$mTitle = "DataBorg | Admin";
 		$sidebar = "sidebar-admin";
 	}
 	break;
 	case "contacts" : {
-		$mTitle = " | Contact";
+		$mTitle = "DataBorg | Contact";
 	}
 	break;
 	/* Home Page */
 	default : {
-		$mTitle = " | Home";
+		$mTitle = "DataBorg | Home";
 		$mKeys = "Learning, Scheduling, Feynman, Engineering, Software, Physics";
 		$mDescr = "learn and keep track of stuff and your life";
 		$sidebar = "sidebar-home";

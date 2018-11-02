@@ -23,7 +23,9 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 				$url_id = $row -> url_id;
 				$category = $row -> category;
 				$type = $row -> type;
-				if($category == $page_category)
+				if(($category == $page_category)|| 
+					($page_category == 'current')||
+					($page_category == 'completed'))
 				{//finds all content on your page
 
 
@@ -42,7 +44,7 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 								$status = $row -> status;
 
 								if (($status == $filter)) {
-
+									//we have passed all checks and will now create the item
 									ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,$list_id,$db);
 
 								} else{
@@ -146,22 +148,23 @@ function ItemButton($list_id,$db)
 echo'
 <form method="post">
 <strong>Current Status: </strong>
-Current: <input type="radio" name="MyUpdateStatus" value="current">
-Finished: <input type="radio" name="MyUpdateStatus" value="completed">
-Default: <input type="radio" name="MyUpdateStatus" value="default">
-<input type="submit">
+Current: <input type="radio" name="'.$list_id.'" value="current">
+Finished: <input type="radio" name="'.$list_id.'" value="completed">
+Default: <input type="radio" name="'.$list_id.'" value="default">
+<input type="submit" value="Change Status">
 </form>
 ';
 
 $MyUpdateStatus = "not set";
-if (empty($_POST["MyUpdateStatus"])) {
+if (empty($_POST[$list_id])) {
     } else
     {
     	
-        $MyUpdateStatus = $_POST['MyUpdateStatus'];
+        $MyUpdateStatus = $_POST[$list_id];
+        UpdateStatus($MyUpdateStatus,$list_id,$db);
     }
 
-UpdateStatus($MyUpdateStatus,$list_id,$db);
+
 
 }
 
@@ -172,20 +175,22 @@ function NoteCreator($list_id,$db)
 	$previousNotes = GetPreviousNotes($list_id,$db);
 	echo '
 <strong>Notes: </strong>
-<form method="post">
-<textarea rows="5" cols="75" name="notes">'.$previousNotes.'</textarea>
-<input type="submit">
+<form method="post" >
+<textarea rows="20" cols="90" name="notes'.$list_id.'">'.$previousNotes.'</textarea>
+<input type="submit" value="Save Notes">
 </form>
 ';
 
 $notes = "not set";
-if (empty($_POST["notes"])) {
+if (empty($_POST['notes'.$list_id])) {
     } else
     {
     	
-        $notes = $_POST['notes'];
+        $notes = $_POST['notes'.$list_id];
+
+        UpdateNotes($notes,$list_id,$db);
     }
-	UpdateNotes($notes,$list_id,$db);
+	
 
 
 
@@ -197,20 +202,21 @@ function DeleteButton($list_id,$db)
 
 echo'
 <form method="post">
-Delete Item?  yes:<input type="radio" name="DeleteItem" value="Delete">
-<input type="submit">
+Current: <input type="radio" name="'.$list_id.'" value="delete">
+<input type="submit" value="Delete">
 </form>
+<br><br/>
 ';
 
-$MyUpdateStatus = "not set";
-if (empty($_POST["MyUpdateStatus"])) {
+$DeleteItem = "not set";
+if (empty($_POST[$list_id])) {
     } else
     {
     	
-        $MyUpdateStatus = $_POST['MyUpdateStatus'];
+        $DeleteItem = $_POST[$list_id];
+        DeleteItem($DeleteItem,$list_id,$db);
     }
 
-UpdateStatus($MyUpdateStatus,$list_id,$db);
 
 }
 

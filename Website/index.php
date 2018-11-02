@@ -38,7 +38,7 @@ include("scripts/seo.php");
             <a id="slide-next" href="#"></a>
             <a id="slide-prev" href="#"></a>
             <div id="slider">
-                <div class="sl-slide activeSlide"> <img src="images/slider/1.jpg" width="900" height="300" alt="slide1" /> </div>
+                <div class="sl-slide activeSlide"> Future location of your data</div>
             </div>
         </div>
         <!-- Main Slider's container, must be the BODY's child -->
