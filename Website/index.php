@@ -46,15 +46,15 @@ include("scripts/seo.php");
         <?php 
 
         $first = 'Name';
-        $second = 'Total Hours';
-        $third = 'Remaining';
+        $second = 'Total';
+        $third = 'Used';
         $type = 'hour';
         $logged_in_user_id = 1;
         CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
         ?>
 
 
-    Future location of your data</div>
+        </div>
             </div>
         </div>
         <!-- Main Slider's container, must be the BODY's child -->

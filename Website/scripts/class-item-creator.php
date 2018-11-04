@@ -246,13 +246,7 @@ function ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,
 
 	echo '</div>';
 
-	echo '<script>
-	$(document).ready(function(){$(".item-content").hide();   
-	$( "div.item-small" ).click(function() {
-    $(this).next().toggle();
-	});
-	});
-	</script>';				
+				
 
 }
 

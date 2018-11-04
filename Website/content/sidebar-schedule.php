@@ -6,12 +6,26 @@
   <div class="module">
     <h3 class="module-title">How To Guide</h3>
     <p><ul>
-    	<li>a</li>
-    	<li>b</li>
-    	<li>c</li>
+    	<li>Insert Data into the table below</li>
+    	<li>Submit</li>
+    	<li>Fill tables as needed</li>
     	<li>d</li>
     	<li>e</li>
     	<li>f</li>
+    </ul></p>
+  </div>
+
+    <div class="module">
+    <h3 class="module-title">Schedule Insert</h3>
+    <p><ul>
+      <?php
+    $first = 'Task';
+    $second = 'Importance';
+    $third = 'Completed';
+    $type = 'hour';
+
+    CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id);
+    ?>
     </ul></p>
   </div>
   

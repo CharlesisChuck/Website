@@ -55,7 +55,13 @@ $sidebar = FilterData($db,$logged_in_user_id,$page_category,$filter);
 
 
 ?>
-
+<script>
+  $(document).ready(function(){$(".item-content").hide();   
+  $( "div.item-small" ).click(function() {
+    $(this).next().toggle();
+  });
+  });
+  </script>
 </div>
 
 

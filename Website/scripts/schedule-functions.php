@@ -10,6 +10,7 @@ function CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id)
 					<th>'.$first.'</th>
 					<th>'.$second.'</th>
 					<th>'.$third.'</th>
+					<th>Delete</th>
 				</tr>';
 
 			if($type == 'hour')
@@ -37,6 +38,10 @@ echo '
 
 					<th><form method="post" >
 					<textarea rows="1" cols="2" name="hours">'.$third_data.'</textarea>
+					</form></th>
+
+					<th><form method="post" >
+					<input type="radio" name="delete" value="delete">
 					</form></th>
 				</tr>';
 			
@@ -74,13 +79,31 @@ function TaskTable($first_data,$second_data,$third_data)
 					Yes: <input '.$checked_yes .' type="radio" name="task" value="yes">
 					No: <input '.$checked_no .' type="radio" name="task" value="no">
 					</form></th>
+
+					<th>
+					<form method="post" >
+					<input type="radio" name="delete" value="delete">
+					</form></th>
 				</tr>';
 			
 		
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
+function InsertForm($first,$second,$third,$type,$db,$logged_in_user_id)
+{			
+		echo'
+				<table>
+				<tr>
+					<th>'.$first.'</th>
+					<th>'.$second.'</th>
+					<th>'.$third.'</th>
+					<th>Delete</th>
+				</tr></table>';
 
+		
+}
+/////////////////////////////////////
 ?>
 
 

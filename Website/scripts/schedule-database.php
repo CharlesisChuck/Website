@@ -54,10 +54,6 @@ function GetHours($db,$logged_in_user_id,$type)
 		}
 	
 	}
-	$first_data = 'not set';
-	$second_data = 0;
-	$third_data = 0;
-	HoursTable($first_data,$second_data,$third_data);
 	echo '</table><br><br/>';
 }
 
@@ -81,10 +77,7 @@ function GetTasks($db,$logged_in_user_id,$type)
 		}
 	
 	}
-	$first_data = 'not set';
-	$second_data = 0;
-	$third_data = '';
-	TaskTable($first_data,$second_data,$third_data);
+
 	echo '</table><br><br/>';
 }
 
