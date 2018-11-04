@@ -148,19 +148,19 @@ function ItemButton($list_id,$db)
 echo'
 <form method="post">
 <strong>Current Status: </strong>
-Current: <input type="radio" name="'.$list_id.'" value="current">
-Finished: <input type="radio" name="'.$list_id.'" value="completed">
-Default: <input type="radio" name="'.$list_id.'" value="default">
+Current: <input type="radio" name="status'.$list_id.'" value="current">
+Finished: <input type="radio" name="status'.$list_id.'" value="completed">
+Default: <input type="radio" name="status'.$list_id.'" value="default">
 <input type="submit" value="Change Status">
 </form>
 ';
 
 $MyUpdateStatus = "not set";
-if (empty($_POST[$list_id])) {
+if (empty($_POST['status'.$list_id])) {
     } else
     {
     	
-        $MyUpdateStatus = $_POST[$list_id];
+        $MyUpdateStatus = $_POST['status'.$list_id];
         UpdateStatus($MyUpdateStatus,$list_id,$db);
     }
 
@@ -202,18 +202,18 @@ function DeleteButton($list_id,$db)
 
 echo'
 <form method="post">
-Current: <input type="radio" name="'.$list_id.'" value="delete">
+Current: <input type="radio" name="delete'.$list_id.'" value="delete">
 <input type="submit" value="Delete">
 </form>
 <br><br/>
 ';
 
 $DeleteItem = "not set";
-if (empty($_POST[$list_id])) {
+if (empty($_POST['delete'.$list_id])) {
     } else
     {
     	
-        $DeleteItem = $_POST[$list_id];
+        $DeleteItem = $_POST['delete'.$list_id];
         DeleteItem($DeleteItem,$list_id,$db);
     }
 
@@ -242,7 +242,9 @@ function ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,
 	ItemButton($list_id,$db);
 	NoteCreator($list_id,$db);
 	DeleteButton($list_id,$db);
+
 	echo '</div>';
+
 	echo '<script>
 	$(document).ready(function(){$(".item-content").hide();   
 	$( "div.item-small" ).click(function() {

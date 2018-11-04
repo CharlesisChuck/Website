@@ -51,6 +51,9 @@ include("scripts/database-functions.php");
   }
 
 $sidebar = FilterData($db,$logged_in_user_id,$page_category,$filter);
+
+
+
 ?>
 
 </div>
