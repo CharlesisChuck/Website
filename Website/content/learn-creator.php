@@ -39,7 +39,7 @@ if (empty($_POST["filter"])) {
 
 echo '<br><br/>';
 }
-include("scripts/class_item_creator.php");
+include("scripts/class-item-creator.php");
 include("scripts/database-access.php");
 include("scripts/database-functions.php");
 

@@ -9,6 +9,8 @@ echo '<link rel="stylesheet" type="text/css" href="css/jbc.css" <noscript>
 $filter = 0;
 $page = $_GET['page'];
 include("scripts/seo.php");
+        include("scripts/schedule-functions.php");
+        include("scripts/schedule-database.php");
 ?>
 
     <!doctype html>
@@ -38,7 +40,21 @@ include("scripts/seo.php");
             <a id="slide-next" href="#"></a>
             <a id="slide-prev" href="#"></a>
             <div id="slider">
-                <div class="sl-slide activeSlide"> Future location of your data</div>
+                <div class="sl-slide activeSlide"> 
+
+        <h3>Hours</h3>
+        <?php 
+
+        $first = 'Name';
+        $second = 'Total Hours';
+        $third = 'Remaining';
+        $type = 'hour';
+        $logged_in_user_id = 1;
+        CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
+        ?>
+
+
+    Future location of your data</div>
             </div>
         </div>
         <!-- Main Slider's container, must be the BODY's child -->

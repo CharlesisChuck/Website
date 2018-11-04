@@ -12,7 +12,7 @@
 		- put scripts in the footer
 		- clean sidebars
 		- main screen data
-		- courses one copy, but can have multiple users for that copy
 		- fix sidebar home current user
 		- logout
 		- fix expanding JQuery bug
+		- fix SQL in class section  (can check for user_id in sql)
