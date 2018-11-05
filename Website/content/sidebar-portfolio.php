@@ -6,4 +6,3 @@
     <h3 class="module-title">About</h3>
     <p>Electrical Engineer that is very curious of all subjects skilled in programming, electronics design, physics and manufacturing.</p>
   </div>
-  

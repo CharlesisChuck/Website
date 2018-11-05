@@ -65,8 +65,4 @@ $sidebar = FilterData($db,$logged_in_user_id,$page_category,$filter);
   </script>
 </div>
 
-
-<?php
-include($sidebar . '.php');
-?>
 <div class="clear"></div>

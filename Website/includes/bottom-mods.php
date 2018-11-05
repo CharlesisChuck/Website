@@ -1,9 +1,9 @@
 
 <div class="bottom-mods">
   <div class="f-third">
-    <h3 class="module-title">External Links</h3>
+    <h3 class="module-title"></h3>
     <ul>
-      <li style="text-transform:uppercase"><p><a href="?page=features" class="ajax">(Coming Soon)</a></p></li>
+      <li style="text-transform:uppercase"><p><a href="?page=features" class="ajax"></a></p></li>
     </ul>
   </div>
   <div class="f-third f-last">

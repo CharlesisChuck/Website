@@ -13,4 +13,6 @@
 		- Remove and condense functions (remove repeated data)
 		- Security on schedule
 		- https
-		- Schedule Data
+		- user_id check on schedule
+		- comments
+		- fileupload

@@ -15,6 +15,7 @@
           <th>Name</th>
           <th>Total</th>
           <th>Used</th>
+          <th>Good/Bad?</th>
         </tr>
         <tr>
           <th>
@@ -27,6 +28,12 @@
 
           <th>
           <textarea rows="1" cols="2" name="third_hour"></textarea>
+          </th>
+          <th>
+          <select name="good_bad">
+          <option value="good">Good</option>
+          <option value="bad">Bad</option>          
+          </select>
           </th>
         </tr>
         <input type="submit" name="Schedule_Create" value="Add Hours!">
@@ -73,6 +80,7 @@ $first = '';
 $second = '';
 $third = '';
 $type = '';
+$good_bad = NULL;
 
     if (empty($_POST['first_task'])) {
     } else
@@ -96,13 +104,20 @@ $type = '';
 
     }
 
+    if (empty($_POST['good_bad'])) {
+    } else
+    {
+        $good_bad = $_POST['good_bad'];
+
+    }
+
     $MyUpdateStatus = "not set";
   if (empty($_POST['Schedule_Create'])) {
     } else
     {
     
         $MyUpdateStatus = $_POST['Schedule_Create']; 
-       CreateItem($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus);
+       ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
     }
 
 
@@ -129,12 +144,11 @@ $type = '';
         
     }
      $MyUpdateStatus = "not set";
-  if (empty($_POST['Schedule_Create'])) {
+    if (empty($_POST['Schedule_Create'])) {
     } else
     {
-    
         $MyUpdateStatus = $_POST['Schedule_Create']; 
-       CreateItem($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus);
+       ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus);
     }
 
 ?>

@@ -94,11 +94,11 @@ $other = 'other';
 	if($type==$playlist)
 	{
 		
-		echo ('<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br/>');
+		echo ('<iframe width="800" height="500" src="https://www.youtube.com/embed/videoseries?list=' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br/>');
 
 	}else if($type==$video)
 	{
-		echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+		echo '<iframe width="800" height="500" src="https://www.youtube.com/embed/' . $url_id . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
 
 	}else if($type==$document)
 	{
@@ -174,9 +174,8 @@ function NoteCreator($list_id,$db)
 {
 	$previousNotes = GetPreviousNotes($list_id,$db);
 	echo '
-<strong>Notes: </strong>
 <form method="post" >
-<textarea rows="20" cols="90" name="notes'.$list_id.'">'.$previousNotes.'</textarea>
+<textarea rows="25" cols="130" name="notes'.$list_id.'">'.$previousNotes.'</textarea>
 <input type="submit" value="Save Notes">
 </form>
 ';
@@ -240,9 +239,11 @@ function ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,
     echo '<div class="item-content">';
 	
 	CreateItemCurrent($status,$notes,$description,$title,$type,$url_id,$category);
-	ItemButton($list_id,$db);
+	
 	NoteCreator($list_id,$db);
+	ItemButton($list_id,$db);
 	DeleteButton($list_id,$db);
+
 
 	echo '</div>';
 

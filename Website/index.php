@@ -82,10 +82,36 @@ include("scripts/seo.php");
         <div class="ui_stats">
         <h3>Stats</h3>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><p><strong>Total: 
+        <?php
+        $data = 'total';
+        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        ?>
+        </strong></p></li>
+        <li><p><strong>Hours: 
+        <?php
+        $data = 'hour';
+        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        ?>
+        </strong></p></li>
+        <li><p><strong>Week: 
+        <?php
+        $data = 'week';
+        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        ?>
+        </strong></p></li>
+        <li><p><strong>Month: 
+        <?php
+        $data = 'month';
+        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        ?>
+        </strong></p></li>
+        <li><p><strong>Year: 
+        <?php
+        $data = 'year';
+        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        ?>
+        </strong></p></li>
         </ul>
         </div>
 
@@ -101,7 +127,7 @@ include("scripts/seo.php");
 
         <div class="ui_time">
         <p><strong>Time Since Last Edit: <?php
-        echo GetTime($logged_in_user_id,$db);
+        echo GetTimeSchedule($logged_in_user_id,$db);
         ?></strong></p>
         </div>
 
