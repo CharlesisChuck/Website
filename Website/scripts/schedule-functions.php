@@ -49,42 +49,30 @@ echo '
 	$delete = "";
 
 	if (empty($_POST['first'.$list_id])) {
-		echo $empty;
     } else
     {
         $first = $_POST['first'.$list_id];
-        echo "FIRST";
-        echo $first;
     }
 
 
     if (empty($_POST['second'.$list_id])) {
-		echo $empty;
     } else
     {
         $second = $_POST['second'.$list_id];
- 		echo "SECOND";
-        echo $second;
     }
 
 
     if (empty($_POST['third'.$list_id])) {
-		echo $empty;
     } else
     {
         $third = $_POST['third'.$list_id];
-        echo "THIRD";
-        echo $third;
     }
 
 
     if (empty($_POST['delete'.$list_id])) {
-		echo $empty;
     } else
     {
         $delete = $_POST['delete'.$list_id];
-        echo "DELETE";
-        echo $delete;
     }
 
     if($delete == "delete")
@@ -142,42 +130,30 @@ function TaskTable($first_data,$second_data,$third_data,$list_id,$db)
 	$third = '';
 
 	if (empty($_POST['first'.$list_id])) {
-		echo $empty;
     } else
     {
         $first = $_POST['first'.$list_id];
-        echo "FIRST";
-        echo $first;
     }
 
 
     if (empty($_POST['second'.$list_id])) {
-		echo $empty;
     } else
     {
         $second = $_POST['second'.$list_id];
- 		echo "SECOND";
-        echo $second;
     }
 
 
     if (empty($_POST['third'.$list_id])) {
-		echo $empty;
     } else
     {
         $third = $_POST['third'.$list_id];
-        echo "THIRD";
-        echo $third;
     }
 
 
     if (empty($_POST['delete'.$list_id])) {
-		echo $empty;
     } else
     {
         $delete = $_POST['delete'.$list_id];
-        echo "DELETE";
-        echo $delete;
     }
 
     if($delete == "delete")

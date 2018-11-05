@@ -73,40 +73,29 @@ $first = '';
 $second = '';
 $third = '';
 $type = '';
-$empty = 'not set';
 
     if (empty($_POST['first_task'])) {
-    echo $empty;
     } else
     {
         $first = $_POST['first_task'];
-        echo "FIRST";
-        echo $first;
-     
+
     }
 
 
     if (empty($_POST['second_task'])) {
-    echo $empty;
     } else
     {
         $second = $_POST['second_task'];
-      echo "SECOND";
-        echo $second;
         $third = '0';
     }
 
     if (empty($_POST['type_task'])) {
-    echo $empty;
     } else
     {
         $type = $_POST['type_task'];
-      echo "TYPE";
-        echo $type;
-    
-        
-    
+
     }
+
     $MyUpdateStatus = "not set";
   if (empty($_POST['Schedule_Create'])) {
     } else
@@ -120,33 +109,24 @@ $empty = 'not set';
 
 
     if (empty($_POST['first_hour'])) {
-    echo $empty;
     } else
     {
         $first = $_POST['first_hour'];
-        echo "FIRST";
-        echo $first;
-       
+       $type = 'hour';
     }
 
 
     if (empty($_POST['second_hour'])) {
-    echo $empty;
     } else
     {
         $second = $_POST['second_hour'];
-      echo "SECOND";
-        echo $second;
     }
 
     if (empty($_POST['third_hour'])) {
-    echo $empty;
     } else
     {
         $third = $_POST['third_hour'];
-      echo "THIRD";
-        echo $third;
-        $type = 'hour';
+        
     }
      $MyUpdateStatus = "not set";
   if (empty($_POST['Schedule_Create'])) {

@@ -36,26 +36,17 @@ include("scripts/seo.php");
 
         <!-- Container with Slider, please look at the usage documentation -->
         <div class="slider">
-            <div class="sl-shadow"></div>
-            <a id="slide-next" href="#"></a>
-            <a id="slide-prev" href="#"></a>
-            <div id="slider">
-                <div class="sl-slide activeSlide"> 
+        <div class="sl-shadow"></div>
+        <div class="sl-slide activeSlide"> 
 
-        <h3>Hours</h3>
-        <?php 
-
-        $first = 'Name';
-        $second = 'Total';
-        $third = 'Used';
-        $type = 'hour';
-        $logged_in_user_id = 1;
-        CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
-        ?>
+        
 
 
+
+
+
+        
         </div>
-            </div>
         </div>
         <!-- Main Slider's container, must be the BODY's child -->
         <div id="slide-loader"></div>
