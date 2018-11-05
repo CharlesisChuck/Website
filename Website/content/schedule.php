@@ -5,6 +5,7 @@
 
 
 <?php 
+date_default_timezone_set("America/Los_Angeles");
 
   $logged_in_user_id = $_SESSION['idlogin'];
   if(($logged_in_user_id == NULL))
@@ -24,11 +25,13 @@ if (empty($_POST["schedule_update"])) {
 
 
 <div class="schedule-edit">
-<form method="post">
+
+	<form method="post">
 	<input type="submit" name="schedule_update" value="Update the Schedule!">
 	<p><strong>Time Since Last Edit:
 
 	<?php
+	
 	echo GetTime($logged_in_user_id,$db);
 	?>
 

@@ -8,7 +8,6 @@
 		- do the same with all .js
 		- put scripts in the footer
 		- clean sidebars
-		- main screen data
 		- logout
 		- fix SQL in class section  (can check for user_id in sql)
 		- Remove and condense functions (remove repeated data)

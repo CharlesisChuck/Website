@@ -47,6 +47,11 @@ echo '
 
 	$empty = "not set";
 	$delete = "";
+	$delete = "";
+	$first = '';
+	$second = '';
+	$third = '';
+
 
 	if (empty($_POST['first'.$list_id])) {
     } else
@@ -77,7 +82,7 @@ echo '
 
     if($delete == "delete")
     {
-    	DeleteItem($list_id,$db);
+    	DeleteItemSchedule($list_id,$db);
     }else if($empty != 'not set')
     {
     	UpdateItem($first,$second,$third,$list_id,$db);

@@ -40,6 +40,76 @@ include("scripts/seo.php");
         <div class="sl-slide activeSlide"> 
 
         
+        <div class="ui_hour">
+        <h3>Hours</h3>
+        <?php 
+
+        $first = 'Name';
+        $second = 'Total';
+        $third = 'Used';
+        $type = 'hour';
+        $logged_in_user_id = 1;
+        CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
+        ?>
+        </div>
+
+        <div class="ui_day">
+        <h3>Daily Tasks</h3>
+        <?php 
+
+        $first = 'Task';
+        $second = 'Importance';
+        $third = 'Complete?';
+        $type = 'day';
+        $logged_in_user_id = 1;
+        CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
+        ?>
+        </div>
+
+        <div class="ui_week">
+        <h3>Weekly Tasks</h3>
+        <?php 
+
+        $first = 'Task';
+        $second = 'Importance';
+        $third = 'Complete?';
+        $type = 'week';
+        $logged_in_user_id = 1;
+        CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
+        ?>
+        </div>
+
+        <div class="ui_stats">
+        <h3>Stats</h3>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        </div>
+
+        <div class="ui_history">
+        <h3>History</h3>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        </div>
+
+        <div class="ui_time">
+        <p><strong>Time Since Last Edit: <?php
+        echo GetTime($logged_in_user_id,$db);
+        ?></strong></p>
+        </div>
+
+        <div class="ui_update">
+        <form method="post">
+        <input type="submit" name="schedule_update" value="Update the Schedule!">
+        </form>
+        </div>
 
 
 
