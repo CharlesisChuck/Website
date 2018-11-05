@@ -30,7 +30,19 @@
       $_SESSION['idlogin'] = $username_value;
 
     }
+    if(empty($_SESSION['idlogin']))
+    {$_SESSION['idlogin'] = '';}
+    else{
      $username_value = $_SESSION['idlogin'];
+    }
+
+    if(empty($_SESSION['logout']))
+    {echo 'LOGOUTEMPTY';}
+    else{
+      echo 'LOGOUT';
+     $_SESSION['idlogin'] = 0;
+    }
+
 
   ?>
   <div class="module">
@@ -43,9 +55,15 @@
 	<span class="error"><?php echo $useridErr;?></span>
 
 	<br><br/>
-	<input type="submit">
+	<input type="submit" value="Login">
 	<br><br/>
 	</form>
+
+  <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>">
+    <input type="submit" name="logout" value="Logout">
+  </form>
+
+
   </div>
   
 

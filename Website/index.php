@@ -39,7 +39,19 @@ include("scripts/seo.php");
         <div class="sl-shadow"></div>
         <div class="sl-slide activeSlide"> 
 
-        
+            <?php
+                $logged_in_user_id = $_SESSION['idlogin'];
+                if(($logged_in_user_id == NULL))
+                {
+                $logged_in_user_id = 0;
+                }
+            ?>
+
+        <div class="ui_update">
+        <form method="post">
+        <input type="submit" name="schedule_update" value="Update the Schedule!">
+        </div>
+
         <div class="ui_hour">
         <h3>Hours</h3>
         <?php 
@@ -48,7 +60,6 @@ include("scripts/seo.php");
         $second = 'Total';
         $third = 'Used';
         $type = 'hour';
-        $logged_in_user_id = 1;
         CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
         ?>
         </div>
@@ -61,7 +72,6 @@ include("scripts/seo.php");
         $second = 'Importance';
         $third = 'Complete?';
         $type = 'day';
-        $logged_in_user_id = 1;
         CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
         ?>
         </div>
@@ -74,7 +84,6 @@ include("scripts/seo.php");
         $second = 'Importance';
         $third = 'Complete?';
         $type = 'week';
-        $logged_in_user_id = 1;
         CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id); 
         ?>
         </div>
@@ -130,12 +139,8 @@ include("scripts/seo.php");
         echo GetTimeSchedule($logged_in_user_id,$db);
         ?></strong></p>
         </div>
-
-        <div class="ui_update">
-        <form method="post">
-        <input type="submit" name="schedule_update" value="Update the Schedule!">
         </form>
-        </div>
+        
 
 
 

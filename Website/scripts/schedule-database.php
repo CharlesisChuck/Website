@@ -22,7 +22,6 @@ function UpdateTimeSchedule($logged_in_user_id,$db)
 
 	$sql_time = "UPDATE `schedule` SET `time`='".$current_time."' WHERE user_id = ".$logged_in_user_id;
 	if ($db->query($sql_time) === TRUE) {
-		echo 'SCHEDULE HAS BEEN UPDATED!';
 	} else {
     echo "Error: " . $sql_time . "<br>" . $db->error;
 	}
@@ -71,7 +70,6 @@ function UpdateSchedule($first,$second,$third,$list_id,$db)
 	$sql_update = "UPDATE schedule_input SET first='$first',second='$second',third='$third' WHERE list_id = ".$list_id;
 
 	if ($db->query($sql_update) === TRUE) {
-		echo 'UPDATE SUCCESSFUL';
 	} else {
     echo "Error: " . $sql_update . "<br>" . $db->error;
 	}
@@ -139,7 +137,13 @@ function DataScheduleGet($logged_in_user_id,$data_type,$db)
 		{
 		} else if($data_type == 'hour')
 		{
+			if(($bad_sum==0)||($good_sum==0))
+			{
+				//do nothing
+			}else{
 			$ratio_data = ($good_sum/$bad_sum);
+			}
+			
 		} else
 		{
 			if(($bad_sum==0)||($good_sum==0))

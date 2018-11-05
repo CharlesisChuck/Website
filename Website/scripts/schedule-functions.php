@@ -91,24 +91,28 @@ function Table($first_data,$second_data,$third_data,$list_id,$db,$type)
     } else
     {
         $first = $_POST['first'.$list_id];
+        $empty = "set";
     }
 
     if (empty($_POST['second'.$list_id])) {
     } else
     {
         $second = $_POST['second'.$list_id];
+        $empty = "set";
     }
 
     if (empty($_POST['third'.$list_id])) {
     } else
     {
         $third = $_POST['third'.$list_id];
+        $empty = "set";
     }
 
     if (empty($_POST['delete'.$list_id])) {
     } else
     {
         $delete = $_POST['delete'.$list_id];
+        $empty = "set";
     }
 
     if($delete == "delete")
