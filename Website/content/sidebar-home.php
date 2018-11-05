@@ -30,10 +30,11 @@
       $_SESSION['idlogin'] = $username_value;
 
     }
+     $username_value = $_SESSION['idlogin'];
 
   ?>
   <div class="module">
-    <strong>Current User: <?php echo "$username"; ?></strong>
+    <strong>User Id #: <?php echo "$username_value"; ?></strong>
   </div>
   <div class="module">
     <h3 class="module-title">Input Username</h3>

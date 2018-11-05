@@ -5,12 +5,13 @@ $page_category = $_GET['page_category'];
 if(($page_category == 'current'))
 {
   $filter = 'current';
-
+  echo '<h3>My Current Classes</h3>';
 
 }
 else if($page_category == 'completed')
 {
   $filter = 'completed';
+  echo '<h3>My Completed Classes</h3>';
 }
 else
 {

@@ -1,6 +1,9 @@
 <div class="left-col">
 
 
+
+
+
 <?php 
 
   $logged_in_user_id = $_SESSION['idlogin'];
@@ -15,9 +18,14 @@ if (empty($_POST["schedule_update"])) {
     	$time = UpdateTime($logged_in_user_id,$db);
     	
     }
+
 ?>
 
+
+
 <div class="schedule-edit">
+<form method="post">
+	<input type="submit" name="schedule_update" value="Update the Schedule!">
 	<p><strong>Time Since Last Edit:
 
 	<?php
@@ -78,6 +86,8 @@ if (empty($_POST["schedule_update"])) {
 	</ul>
 
 </div>
+
+</form>
 
 </div>
 <?php include($sidebar . '.php'); ?>

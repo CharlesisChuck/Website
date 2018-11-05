@@ -50,10 +50,12 @@ function GetHours($db,$logged_in_user_id,$type)
 			$first_data = $row -> first;
 			$second_data = $row -> second;
 			$third_data = $row -> third;
-			HoursTable($first_data,$second_data,$third_data);
+			$list_id = $row -> list_id;
+			HoursTable($first_data,$second_data,$third_data,$list_id,$db);
 		}
 	
 	}
+
 	echo '</table><br><br/>';
 }
 
@@ -73,12 +75,54 @@ function GetTasks($db,$logged_in_user_id,$type)
 			$first_data = $row -> first;
 			$second_data = $row -> second;
 			$third_data = $row -> third;
-			TaskTable($first_data,$second_data,$third_data);
+			$list_id = $row -> list_id;
+			TaskTable($first_data,$second_data,$third_data,$list_id,$db);
 		}
 	
 	}
 
+
 	echo '</table><br><br/>';
+}
+
+////////////////////////////////////////////////////////////////////////////
+
+function DeleteItemSchedule($list_id,$db)
+{
+	$sql_delete = "DELETE FROM schedule_input WHERE list_id = ".$list_id;
+	if ($db->query($sql_delete) === TRUE) {
+		echo "ITEM DELETED";
+	} else {
+    echo "Error: " . $sql_delete . "<br>" . $db->error;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+function UpdateItem($first,$second,$third,$list_id,$db)
+{
+	$sql_update = "UPDATE schedule_input SET first='$first',second='$second',third='$third' WHERE list_id = ".$list_id;
+
+	if ($db->query($sql_update) === TRUE) {
+		echo 'UPDATE SUCCESSFUL';
+	} else {
+    echo "Error: " . $sql_update . "<br>" . $db->error;
+	}
+}
+
+function CreateItem($first,$second,$third,$logged_in_user_id,$db,$type,$check)
+{
+	if($check == 'not set')
+	{
+
+	}else {
+	$sql_create = "INSERT INTO `schedule_input`(`list_id`, `user_id`, `type`, `first`, `second`, `third`) VALUES (NULL,$logged_in_user_id,'$type','$first','$second','$third')";
+	if ($db->query($sql_create) === TRUE) {
+		echo 'UPDATE SUCCESSFUL';
+	} else {
+    echo "Error: " . $sql_create . "<br>" . $db->error;
+	}
+	}
 }
 
 ?>

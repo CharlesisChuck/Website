@@ -50,6 +50,12 @@ $logged_in_user_id = $_SESSION['idlogin'];
 		echo $Total;  
 		?> </li>
 
+		<li>Computer Science Items: <?php 
+		$tag = 'computer-science';
+		$Total = ClassesCount($logged_in_user_id, $db, $tag);
+		echo $Total;  
+		?> </li>
+
 		
 
 	</ul>
