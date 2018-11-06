@@ -115,12 +115,10 @@ $good_bad = NULL;
   if (empty($_POST['Schedule_Create'])) {
     } else
     {
-    
         $MyUpdateStatus = $_POST['Schedule_Create']; 
        ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
+        
     }
-
-
 
 
     if (empty($_POST['first_hour'])) {
@@ -148,15 +146,16 @@ $good_bad = NULL;
     } else
     {
         $MyUpdateStatus = $_POST['Schedule_Create']; 
-       ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus);
+       ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
+       echo "<meta http-equiv='refresh' content='0'>"; 
     }
 
 ?>
 
 <script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
+    
+
+
 </script>
 
   </div>

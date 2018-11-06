@@ -1,9 +1,5 @@
 <div class="left-col">
 
-
-
-
-
 <?php 
 date_default_timezone_set("America/Los_Angeles");
 
@@ -17,15 +13,10 @@ if (empty($_POST["schedule_update"])) {
     } else
     {
     	$time = UpdateTimeSchedule($logged_in_user_id,$db);
-    	
+		echo "<meta http-equiv='refresh' content='0'>";	
     }
 
-
-
-
 ?>
-
-
 
 	<div class="save_schedule">
 	<form method="post">
@@ -39,15 +30,12 @@ if (empty($_POST["schedule_update"])) {
 	<form method="post">
 	<input type="submit" name="schedule_update" value="Update the Schedule!">
 	<p><strong>Time Since Last Edit:
-
-	
 	<?php
 	echo GetTimeSchedule($logged_in_user_id,$db);
 	?>
-
 	</strong></p>
+	
 	<ul>
-
 		<div class="daily_tasks_edit">
 		<h3>Hours</h3>
 		<?php 
@@ -127,9 +115,7 @@ if (empty($_POST["schedule_update"])) {
 		echo DataScheduleGet($logged_in_user_id,$data,$db);
 		?>
 		</strong></p></li>
-
 		</div>
-
 	</ul>
 
 

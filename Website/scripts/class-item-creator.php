@@ -162,6 +162,7 @@ if (empty($_POST['status'.$list_id])) {
     	
         $MyUpdateStatus = $_POST['status'.$list_id];
         UpdateStatus($MyUpdateStatus,$list_id,$db);
+        echo "<meta http-equiv='refresh' content='0'>";	
     }
 
 
@@ -188,6 +189,7 @@ if (empty($_POST['notes'.$list_id])) {
         $notes = $_POST['notes'.$list_id];
 
         UpdateNotes($notes,$list_id,$db);
+        echo "<meta http-equiv='refresh' content='0'>";	
     }
 	
 
@@ -215,6 +217,7 @@ if (empty($_POST['delete'.$list_id])) {
     	
         $DeleteItem = $_POST['delete'.$list_id];
         DeleteItem($DeleteItem,$list_id,$db);
+        echo "<meta http-equiv='refresh' content='0'>";	
     }
 
 

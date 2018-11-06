@@ -4,7 +4,7 @@
 
 function GetTimeSchedule($logged_in_user_id,$db)
 {
-	$time = 'NOT SET';
+	$time = 'nothing here...';
 	$sql_time = "SELECT * FROM schedule WHERE user_id = ".$logged_in_user_id;
 	$result_time = $db -> query($sql_time);
 	while($row = $result_time -> fetch_object() )
@@ -100,7 +100,7 @@ function DataScheduleGet($logged_in_user_id,$data_type,$db)
 	$bad_sum = 0;
 	$good_sum = 0;
 
-	$sql_data = "SELECT * FROM schedule_input";
+	$sql_data = "SELECT * FROM schedule_input WHERE user_id = '$logged_in_user_id'";
 	$result_data = $db -> query($sql_data);
 	while($row = $result_data -> fetch_object() )
 	{//checking if we are logged in

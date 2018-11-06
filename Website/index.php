@@ -2,7 +2,7 @@
 session_start();
 //database initialization
 include("scripts/database-access.php");
-
+date_default_timezone_set("America/Los_Angeles");
 echo '<link rel="stylesheet" type="text/css" href="css/jbc.css" <noscript>
         <link rel="stylesheet" href="css/jbc-noscript.css" />';
 
@@ -11,7 +11,36 @@ $page = $_GET['page'];
 include("scripts/seo.php");
         include("scripts/schedule-functions.php");
         include("scripts/schedule-database.php");
+
+                $logged_in_user_id = $_SESSION['idlogin'];
+                if(($logged_in_user_id == NULL))
+                {
+                $logged_in_user_id = 0;
+                }
+
+    if (empty($_POST["schedule_update"])) {
+    } else
+    {
+        $time = UpdateTimeSchedule($logged_in_user_id,$db);
+        echo "<meta http-equiv='refresh' content='0'>"; 
+    }
+
 ?>
+
+  <script type="text/javascript">
+        setInterval(abc, 1000);
+
+        function abc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("container").innerHTML = this.responseText;
+        }
+        };
+        xhttp.open("GET", "notify.asp", true);
+        xhttp.send();
+        }
+    </script>
 
     <!doctype html>
     <html>
@@ -32,20 +61,12 @@ include("scripts/seo.php");
         </title>
     </head>
 
-    <body>
+    <body id="container" onload="javascript:abc()">
 
         <!-- Container with Slider, please look at the usage documentation -->
         <div class="slider">
         <div class="sl-shadow"></div>
         <div class="sl-slide activeSlide"> 
-
-            <?php
-                $logged_in_user_id = $_SESSION['idlogin'];
-                if(($logged_in_user_id == NULL))
-                {
-                $logged_in_user_id = 0;
-                }
-            ?>
 
         <div class="ui_update">
         <form method="post">
@@ -141,12 +162,6 @@ include("scripts/seo.php");
         </div>
         </form>
         
-
-
-
-
-
-        
         </div>
         </div>
         <!-- Main Slider's container, must be the BODY's child -->
@@ -187,5 +202,32 @@ include("scripts/seo.php");
         <div class="dark-layer"></div>
         <div class="white-layer"></div>
     </body>
+
+<script type="text/javascript">
+
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    
+          (function($){
+    $.fn.scrollPosReaload = function(){
+        if (localStorage) {
+            var posReader = localStorage["posStorage"];
+            if (posReader) {
+                $(window).scrollTop(posReader);
+                localStorage.removeItem("posStorage");
+            }
+            $(this).click(function(e) {
+                localStorage["posStorage"] = $(window).scrollTop();
+            });
+            return true;
+        }
+        return false;
+    }
+    $(document).ready(function() {
+        $('input').scrollPosReaload();
+    });
+}(jQuery));  
+</script>
 
     </html>

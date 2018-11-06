@@ -28,19 +28,20 @@
     {
     	$useridErr = "You are logged in";
       $_SESSION['idlogin'] = $username_value;
-
+      echo "<meta http-equiv='refresh' content='0'>";  
     }
     if(empty($_SESSION['idlogin']))
     {$_SESSION['idlogin'] = '';}
     else{
-     $username_value = $_SESSION['idlogin'];
+     $username_value = $_SESSION['idlogin']; 
     }
 
-    if(empty($_SESSION['logout']))
-    {echo 'LOGOUTEMPTY';}
+    if(empty($_POST['logout']))
+    {}
     else{
-      echo 'LOGOUT';
+     $_POST["userid"] = 0;
      $_SESSION['idlogin'] = 0;
+     echo "<meta http-equiv='refresh' content='0'>";  
     }
 
 
