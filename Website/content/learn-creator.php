@@ -51,9 +51,7 @@ include("scripts/database-functions.php");
     $logged_in_user_id = 0;
   }
 
-$sidebar = FilterData($db,$logged_in_user_id,$page_category,$filter);
-
-
+FilterData($db,$logged_in_user_id,$page_category,$filter);
 
 ?>
 <script>

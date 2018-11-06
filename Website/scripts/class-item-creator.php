@@ -6,76 +6,49 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 {
 	$content = NULL;
 
-	$sql_user = "SELECT * FROM users";
-	$result_user = $db -> query($sql_user);
-	while($row = $result_user -> fetch_object() )
-	{//checking if we are logged in
-		$user_id = $row -> user_id;
-		if($user_id == $logged_in_user_id)
-		{//you are logged in and now can access content
+	$sql_classes = "SELECT * 
+	FROM classes 
+	WHERE `category` = '$page_category' OR `category` = 'current' OR `category` = 'completed' ";
 
+	$result_classes = $db -> query($sql_classes);
+	while($row = $result_classes -> fetch_object() )
+	{//checking what category we are in currently
+		$list_id = $row -> list_id;
+		$url_id = $row -> url_id;
+		$category = $row -> category;
+		$type = $row -> type;
+				
+		$sql_user_classes = "SELECT * 
+		FROM user_classes 
+		WHERE `list_id` = '$list_id' AND `user_id` = '$logged_in_user_id' ";
 
-			$sql_classes = "SELECT * FROM classes ORDER BY type ASC";
-			$result_classes = $db -> query($sql_classes);
-			while($row = $result_classes -> fetch_object() )
-			{//checking what category we are in currently
-				$list_id = $row -> list_id;
-				$url_id = $row -> url_id;
-				$category = $row -> category;
-				$type = $row -> type;
-				if(($category == $page_category)|| 
-					($page_category == 'current')||
-					($page_category == 'completed'))
-				{//finds all content on your page
+		$result_user_classes  = $db -> query($sql_user_classes);
+		while($row = $result_user_classes  -> fetch_object() )
+		{//checking what item is assigned to our user				
+			$title = $row -> title;
+			$description = $row -> description;
+			$notes = $row -> notes;
+			$status = $row -> status;
 
-
-					$sql_user_classes = "SELECT * FROM user_classes";
-					$result_user_classes  = $db -> query($sql_user_classes);
-					while($row = $result_user_classes  -> fetch_object() )
-					{//checking what item is assigned to our user
-						$list_id_check = $row -> list_id;
-						$list_user_check = $row -> user_id;
-							if( ($list_user_check == $logged_in_user_id) && ($list_id_check == $list_id) )
-							{//we found a list_id attached to an user_id
-								//attach all data sorted to our object
-								$title = $row -> title;
-								$description = $row -> description;
-								$notes = $row -> notes;
-								$status = $row -> status;
-
-								if (($status == $filter)) {
-									//we have passed all checks and will now create the item
-									ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,$list_id,$db);
-
-								} else{
-										
-								}
-
-								$content = "Content Found"; //Content found!
-							}
-					}
-				}
-			}
-		} else if($user_id != $logged_in_user_id)
+			if (($status == $filter)) 
 			{
-				$user_id == NULL;
-			}
+				//we have passed all checks and will now create the item
+				ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,$list_id,$db);
+				$content = "Content Found"; //Content found!
+			} 
+			
+							
+		}
+				
 	}
 	$db->close();
-	if($user_id == NULL)
-	{
-		echo "<br>";
-		echo "YOU ARE NOT LOGGED IN AND CANNOT SEE YOUR LIST OF CLASSES!";
-		echo "<br>";
-	}
+
 	if($content == NULL)
 	{
 		echo "There's nothing here yet <br><br/>";
-		echo 'Go to: "Admin" >> "Add Content" to add your content!';
+		echo 'Go to: "Admin" then "Add Content" to add your stuff!';
 	}
 
-	 $sidebar = FindSideBar($page_category);
-	 return $sidebar;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +63,6 @@ $website = 'website';
 $books = 'book';
 $other = 'other';
 
-//need buttons here for when I want to tell it to make current or completed.
 	if($type==$playlist)
 	{
 		
@@ -107,8 +79,8 @@ $other = 'other';
 
 	}else if($type==$website)
 	{
-		echo '<blockquote class="embedly-card"><h4><a href="http://hackerank.com">HackerRank</a></h4><p>Join over 4 million developers. Practice coding, prepare for interviews, and get hired.</p></blockquote>
-<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
+		echo '<blockquote class="embedly-card"><h4><a href="http://' . $url_id . '">'. $title .'</a></h4><p>' . $description . '</p></blockquote>
+			<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
 	}
 	else if($type==$books)
 	{
@@ -119,26 +91,7 @@ $other = 'other';
 		echo '<blockquote class="embedly-card"><h4><a href="http://' . $url_id . '">'. $title .'</a></h4><p>' . $description . '</p></blockquote>
 			<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
 	}
-	else 
-	{
-		echo "ERROR";
-	}
 
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function FindSideBar($page_category)
-{
-	$sidebar = "sidebar-home";
-	if($page_category != "feynman")
-	{
-		$sidebar = "sidebar-classes";
-	} else if($page_category == "feynman")
-	{
-		$sidebar = "sidebar-feynman";
-	}      
-	return $sidebar;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -220,17 +173,7 @@ if (empty($_POST['delete'.$list_id])) {
         echo "<meta http-equiv='refresh' content='0'>";	
     }
 
-
 }
-
-
-////////////////////////////////////////////////////////////
-
-// DocumentUploader($list_id,$db)
-// {
-
-	
-// }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -247,10 +190,7 @@ function ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,
 	ItemButton($list_id,$db);
 	DeleteButton($list_id,$db);
 
-
 	echo '</div>';
-
-				
 
 }
 
