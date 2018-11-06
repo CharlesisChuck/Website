@@ -16,7 +16,9 @@ function FilterURL($url,$type)
 {
   $filtered_url = strstr($url, 'watch?v', false);
   $filtered_url = str_replace("watch?v=","","$filtered_url");
-} 
+} else{
+  $filtered_url = $url;
+}
 
   return $filtered_url;
 }
@@ -96,7 +98,7 @@ function test_input($data) {
     }
   }
 
-  $filteredurl = FilterURL($url,$type);
+  
   
   $logged_in_user_id = $_SESSION['idlogin'];
   if(($logged_in_user_id == NULL))
@@ -106,9 +108,10 @@ function test_input($data) {
   if($logged_in_user_id == 0)
   {
     echo 'YOU ARE NOT SIGNED IN, NO CONTENT ADDED';
-  } else
-  { 
-  InsertSQLForm($logged_in_user_id,$db,$filteredurl,$title,$description,$status,$type,$category);
+  } else if($title != '')
+  {
+    $filteredurl = FilterURL($url,$type);
+    InsertSQLForm($logged_in_user_id,$db,$filteredurl,$title,$description,$status,$type,$category);
   }
 /////////////////////////////////////////////////////////////////////////
 ?>
@@ -171,6 +174,12 @@ Finished: <input type="radio" name="status" value="completed">
 <input type="submit">
 
 </form>
+
+<script type="text/javascript">
+  if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 
 
 

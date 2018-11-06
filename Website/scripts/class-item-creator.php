@@ -107,8 +107,8 @@ $other = 'other';
 
 	}else if($type==$website)
 	{
-		echo '<blockquote class="embedly-card"><h4><a href="http://' . $url_id . '">'. $title .'</a></h4><p>' . $description . '</p></blockquote>
-			<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
+		echo '<blockquote class="embedly-card"><h4><a href="http://hackerank.com">HackerRank</a></h4><p>Join over 4 million developers. Practice coding, prepare for interviews, and get hired.</p></blockquote>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
 	}
 	else if($type==$books)
 	{

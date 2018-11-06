@@ -11,6 +11,7 @@
 		- History
 		- Weekly Reset & Save
 		- get high audit scores
+		- Only Youtube Works
 
 
 						Secondary Tasks

@@ -2,9 +2,14 @@
 
 
 $dbConnect = array(
-	'user' => 'charlesc_df5a_cg',
-	'pass' => 'BOBjobob123',
-	'name' => 'charlesc_first_website'
+	'server' => 'localhost',
+	'user' => 'root',
+	'pass' => '',
+	'name' => 'first_website'
+	
+	// 'user' => 'charlesc_df5a_cg',
+	// 'pass' => 'BOBjobob123',
+	// 'name' => 'charlesc_first_website'
 );
 
 $db = new mysqli(
