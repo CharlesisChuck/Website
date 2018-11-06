@@ -1,7 +1,7 @@
 <div class="left-col">
 
 <?php 
-date_default_timezone_set("America/Los_Angeles");
+
 
   $logged_in_user_id = $_SESSION['idlogin'];
   if(($logged_in_user_id == NULL))

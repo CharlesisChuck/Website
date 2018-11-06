@@ -2,17 +2,21 @@
 
 						Current List of Tasks
 
-		- javascript for current, finished ect
-		- Need filter for class overview,completed and current
-		- put all php requests into one file to speed up
-		- do the same with all .js
-		- put scripts in the footer
 		- clean sidebars
-		- logout
 		- fix SQL in class section  (can check for user_id in sql)
 		- Remove and condense functions (remove repeated data)
 		- Security on schedule
-		- https
-		- user_id check on schedule
 		- comments
-		- fileupload
+		- organize 
+		- History
+		- Weekly Reset & Save
+		- get high audit scores
+
+
+						Secondary Tasks
+
+		- fileupload		
+		- https		
+		- put all php requests into one file to speed up
+		- put scripts in the footer
+		- speed optimization

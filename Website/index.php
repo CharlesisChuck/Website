@@ -7,10 +7,16 @@ echo '<link rel="stylesheet" type="text/css" href="css/jbc.css" <noscript>
         <link rel="stylesheet" href="css/jbc-noscript.css" />';
 
 $filter = 0;
-$page = $_GET['page'];
+if(empty($_GET['page']))
+{
+    $page = 'home';
+} else {
+    $page = $_GET['page'];
+}
+
 include("scripts/seo.php");
-        include("scripts/schedule-functions.php");
-        include("scripts/schedule-database.php");
+include("scripts/schedule-functions.php");
+include("scripts/schedule-database.php");
 
                 $logged_in_user_id = $_SESSION['idlogin'];
                 if(($logged_in_user_id == NULL))
