@@ -4,7 +4,11 @@
 
 function CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id)
 {			
-		echo'
+		
+
+			if($type == 'hour')
+			{
+				echo'
 				<table>
 				<tr>
 					<th>'.$first.'</th>
@@ -12,11 +16,15 @@ function CreateSchedule($first,$second,$third,$type,$db,$logged_in_user_id)
 					<th>'.$third.'</th>
 					<th>Delete</th>
 				</tr>';
-
-			if($type == 'hour')
-			{
 				GetSchedule($db,$logged_in_user_id,$type);
 			}else{
+				echo'
+				<table>
+				<tr>
+					<th>'.$first.'</th>
+					<th>'.$third.'</th>
+					<th>Delete</th>
+				</tr>';
 				GetSchedule($db,$logged_in_user_id,$type);
 			}
 		
@@ -68,9 +76,6 @@ function Table($first_data,$second_data,$third_data,$list_id,$db,$type)
 		<textarea rows="1" cols="10" name="first'.$list_id.'"">'.$first_data.'</textarea>
 		</th>
 		<th>
-		<textarea rows="1" cols="2" name="second'.$list_id.'">'.$second_data.'</textarea>
-		</th>
-		<th>
 		Yes: <input '.$checked_yes .' type="radio" name="third'.$list_id.'" value="1">
 		No: <input '.$checked_no .' type="radio" name="third'.$list_id.'" value="0">
 		</th>
@@ -92,6 +97,7 @@ function Table($first_data,$second_data,$third_data,$list_id,$db,$type)
     {
         $first = $_POST['first'.$list_id];
         $empty = "set";
+        $second = 1; //DELETE ME
     }
 
     if (empty($_POST['second'.$list_id])) {
@@ -126,6 +132,13 @@ function Table($first_data,$second_data,$third_data,$list_id,$db,$type)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
+
+function HistorySchedulePrint($logged_in_user_id,$db)
+{
+
+}
+
+///////////////////////////////////////////////////////////////////
 
 ?>
 

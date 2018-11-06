@@ -44,7 +44,7 @@
     <table>
         <tr>
           <th>Task</th>
-          <th>Importance</th>
+          <th>Category</th>
         </tr>
 
       <tr>
@@ -52,9 +52,6 @@
           <textarea rows="1" cols="10" name="first_task""></textarea>
           </th>
 
-          <th>
-          <textarea rows="1" cols="2" name="second_task"></textarea>
-          </th>
           <th>
           <select name="type_task">
           <option value="day">Day</option>
@@ -107,7 +104,10 @@ $good_bad = NULL;
     if (empty($_POST['good_bad'])) {
     } else
     {
+      if($type == 'hour')
+      {
         $good_bad = $_POST['good_bad'];
+      }
 
     }
 
@@ -115,6 +115,7 @@ $good_bad = NULL;
   if (empty($_POST['Schedule_Create'])) {
     } else
     {
+      $second = 1;
         $MyUpdateStatus = $_POST['Schedule_Create']; 
        ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
         

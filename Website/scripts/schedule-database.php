@@ -73,6 +73,7 @@ function UpdateSchedule($first,$second,$third,$list_id,$db)
 	} else {
     echo "Error: " . $sql_update . "<br>" . $db->error;
 	}
+
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -90,51 +91,62 @@ function ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$check
     echo "Error: " . $sql_create . "<br>" . $db->error;
 	}
 	}
+	//HistoryScheduleSave();
 }
 
 //////////////////////////////////////////////////////////////////
 
-function DataScheduleGet($logged_in_user_id,$data_type,$db)
+function RatioScheduleGet($logged_in_user_id,$data_type,$db)
 {
-	$ratio_data = 'nothing yet...';
+	$ratio_data = 0;
 	$bad_sum = 0;
 	$good_sum = 0;
+	$sum_total = 0;
 
 	$sql_data = "SELECT * FROM schedule_input WHERE user_id = '$logged_in_user_id'";
 	$result_data = $db -> query($sql_data);
 	while($row = $result_data -> fetch_object() )
 	{//checking if we are logged in
-			$first_data = $row -> first;
-			$second_data = $row -> second;
-			$third_data = $row -> third;
-			$list_id = $row -> list_id;
-			$good_bad = $row -> good_bad;
-			$type_check = $row -> type;
-			if($data_type == 'total')
+		$first_data = $row -> first;
+		$second_data = $row -> second;
+		$third_data = $row -> third;
+		$list_id = $row -> list_id;
+		$good_bad = $row -> good_bad;
+		$type_check = $row -> type;
+		if($type_check == $data_type)
+		{
+			if($good_bad == 'bad')
 			{
-			} else if($type_check == $data_type)
+				$bad_sum  += $third_data; 
+			} else if($good_bad == 'good')
 			{
-
-				if($good_bad == 'bad')
+				$good_sum += $third_data;
+			} 
+			else if($good_bad == NULL)
+			{
+				$good_sum += $second_data;
+				if($third_data == 0)
 				{
-					$bad_sum  += $third_data; 
-				} else if($good_bad == 'good')
-				{
-					$good_sum += $third_data;
-				} 
-				else if($good_bad == NULL){
-					$good_sum += $second_data;
-					if($third_data == 0)
-					{
-					$bad_sum += 1;
-					}
+				$bad_sum += 1;
 				}
-			} else{
 			}
-			
+		} 
 	}
 		if($data_type == 'total')
 		{
+			$total_type = 'hour';
+			$sum_total += RatioScheduleGet($logged_in_user_id,$total_type,$db);
+			$total_type = 'day';
+			$sum_total -= RatioScheduleGet($logged_in_user_id,$total_type,$db);
+			$total_type = 'week';
+			$sum_total -= RatioScheduleGet($logged_in_user_id,$total_type,$db);
+			$total_type = 'month';
+			$sum_total -= RatioScheduleGet($logged_in_user_id,$total_type,$db);
+			$total_type = 'year';
+			$sum_total -= RatioScheduleGet($logged_in_user_id,$total_type,$db);
+
+			$ratio_data = ($sum_total/5);
+
 		} else if($data_type == 'hour')
 		{
 			if(($bad_sum==0)||($good_sum==0))
@@ -155,8 +167,39 @@ function DataScheduleGet($logged_in_user_id,$data_type,$db)
 		}
 		
 	
-	return $ratio_data;
+	return round($ratio_data, 2);
 }
 
+///////////////////////////////////////////////////////////////////////////////////
+
+function HistoryScheduleGet($logged_in_user_id,$db)
+{
+	$ratio = "nothing here yet";
+
+
+	{
+	HistorySchedulePrint($logged_in_user_id,$db,$ratio);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
+function HistoryScheduleSave($logged_in_user_id,$db)
+{
+	$ratio = "nothing here yet";
+
+	$save_ratio = RatioScheduleGet($logged_in_user_id,$data_type,$db);
+
+	{
+	HistorySchedulePrint($logged_in_user_id,$db,$ratio);
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+function ClearSaveReset($logged_in_user_id,$db,$type)
+{
+
+}
 
 ?>

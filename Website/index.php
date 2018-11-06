@@ -121,31 +121,37 @@ include("scripts/schedule-database.php");
             <li><p><strong>Total: 
         <?php
         $data = 'total';
-        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        echo RatioScheduleGet($logged_in_user_id,$data,$db);
         ?>
         </strong></p></li>
         <li><p><strong>Hours: 
         <?php
         $data = 'hour';
-        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        echo RatioScheduleGet($logged_in_user_id,$data,$db);
+        ?>
+        </strong></p></li>
+        <li><p><strong>Day: 
+        <?php
+        $data = 'day';
+        echo ((float)RatioScheduleGet($logged_in_user_id,$data,$db) * 100). '%' ;
         ?>
         </strong></p></li>
         <li><p><strong>Week: 
         <?php
         $data = 'week';
-        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        echo ((float)RatioScheduleGet($logged_in_user_id,$data,$db) * 100). '%' ;
         ?>
         </strong></p></li>
         <li><p><strong>Month: 
         <?php
         $data = 'month';
-        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        echo ((float)RatioScheduleGet($logged_in_user_id,$data,$db) * 100). '%' ;
         ?>
         </strong></p></li>
         <li><p><strong>Year: 
         <?php
         $data = 'year';
-        echo DataScheduleGet($logged_in_user_id,$data,$db);
+        echo ((float)RatioScheduleGet($logged_in_user_id,$data,$db) * 100). '%' ;
         ?>
         </strong></p></li>
         </ul>

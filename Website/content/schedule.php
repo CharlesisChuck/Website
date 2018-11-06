@@ -88,34 +88,43 @@ if (empty($_POST["schedule_update"])) {
 		<li><p><strong>Total: 
 		<?php
 		$data = 'total';
-		echo DataScheduleGet($logged_in_user_id,$data,$db);
+		echo RatioScheduleGet($logged_in_user_id,$data,$db);
 		?>
 		</strong></p></li>
 		<li><p><strong>Hours: 
 		<?php
 		$data = 'hour';
-		echo DataScheduleGet($logged_in_user_id,$data,$db);
+		echo RatioScheduleGet($logged_in_user_id,$data,$db);
 		?>
 		</strong></p></li>
 		<li><p><strong>Week: 
 		<?php
 		$data = 'week';
-		echo DataScheduleGet($logged_in_user_id,$data,$db);
+		echo ((float)RatioScheduleGet($logged_in_user_id,$data,$db) * 100). '%' ;
 		?>
 		</strong></p></li>
 		<li><p><strong>Month: 
 		<?php
 		$data = 'month';
-		echo DataScheduleGet($logged_in_user_id,$data,$db);
+		echo ((float)RatioScheduleGet($logged_in_user_id,$data,$db) * 100). '%' ;
 		?>
 		</strong></p></li>
 		<li><p><strong>Year: 
 		<?php
 		$data = 'year';
-		echo DataScheduleGet($logged_in_user_id,$data,$db);
+		echo ((float)RatioScheduleGet($logged_in_user_id,$data,$db) * 100). '%' ;
 		?>
 		</strong></p></li>
 		</div>
+
+		<div class="history_schedule_edit">
+		<h3>History</h3>
+		<li><p><strong> 
+		<?php
+		HistoryScheduleGet($logged_in_user_id,$db);
+		?>
+		</div>
+
 	</ul>
 
 

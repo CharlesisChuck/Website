@@ -12,6 +12,7 @@
 		- Weekly Reset & Save
 		- get high audit scores
 		- Only Youtube Works
+		- two inputs for schedule-sidebar
 
 
 						Secondary Tasks
@@ -21,3 +22,4 @@
 		- put all php requests into one file to speed up
 		- put scripts in the footer
 		- speed optimization
+		- Importance Schedule

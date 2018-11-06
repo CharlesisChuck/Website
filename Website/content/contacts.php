@@ -1,6 +1,6 @@
 <h2 class="content-heading">Contact</h2>
 <div class="status_message"> </div>
-<form action="#" method="post" id="contact_form">
+<form action="mailto:curt.charles.ee@gmail.com" method="post" id="contact_form">
   <h3 class="fn org small-heading">Charles Curt</h3>
   <div class="adr"> <span class="street-address"> 2784 Homestead Rd</span>,<br/>
     <span class="locality">Santa Clara</span>, <span class="postal-code">CA 95051</span>,<br/>
