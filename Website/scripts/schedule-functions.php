@@ -40,13 +40,13 @@ function Table($first_data,$second_data,$third_data,$list_id,$db,$type)
 		echo '
 		<tr>
 		<th>
-		<textarea rows="1" cols="10" name="first'.$list_id.'">'.$first_data.'</textarea>
+		<textarea rows="1" cols="10" name="first'.$list_id.'" maxlength="10">'.$first_data.'</textarea>
 		</th>
 		<th>
-		<textarea rows="1" cols="2" name="second'.$list_id.'">'.$second_data.'</textarea>
+		<textarea rows="1" cols="3" name="second'.$list_id.'" maxlength="3">'.$second_data.'</textarea>
 		</th>
 		<th>
-		<textarea rows="1" cols="2" name="third'.$list_id.'">'.$third_data.'</textarea>
+		<textarea rows="1" cols="3" name="third'.$list_id.'" maxlength="3">'.$third_data.'</textarea>
 		</th>
 		<th>
 		<input type="radio" name="delete'.$list_id.'" value="delete">
@@ -73,7 +73,7 @@ function Table($first_data,$second_data,$third_data,$list_id,$db,$type)
 		echo '
 		<tr>
 		<th>
-		<textarea rows="1" cols="10" name="first'.$list_id.'"">'.$first_data.'</textarea>
+		<textarea rows="1" cols="10" name="first'.$list_id.'"" maxlength="10">'.$first_data.'</textarea>
 		</th>
 		<th>
 		Yes: <input '.$checked_yes .' type="radio" name="third'.$list_id.'" value="1">
@@ -133,12 +133,6 @@ function Table($first_data,$second_data,$third_data,$list_id,$db,$type)
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-function HistorySchedulePrint($logged_in_user_id,$db)
-{
-
-}
-
-///////////////////////////////////////////////////////////////////
 
 ?>
 

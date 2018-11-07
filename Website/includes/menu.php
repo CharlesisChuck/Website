@@ -32,7 +32,9 @@
   <ul class="submenu">
     <li><a href="?page=#"></a></li>
     <li><a href="?page=portfolio-questions">Questions for Me</a></li>
-    <li><a href="?page=portfolio-references">References</a></li>
+    <?php
+    //echo '<li><a href="?page=portfolio-references">References</a></li>';
+    ?>
     <li><a href="?page=portfolio-about">About</a></li>
     
     <li><a href="?page=portfolio-resume">Resume</a></li>
@@ -57,5 +59,6 @@
     <li><a href="?page=admin-login">Create UserID</a></li>
   </ul>
 </li>
-
-<li class="menu-link"><a href="?page=contacts">Contact</a> </li>
+<?php
+ //echo '<li class="menu-link"><a href="?page=contacts">Contact</a> </li>';
+?>

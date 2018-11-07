@@ -5,7 +5,7 @@
   <p>Richard Feynman was a safe cracking, nuclear bomb making, bongo drum playing nobel prize winning physicist famous for his abilities to teach complex subject matter in a clear and simple way. His unique way of learning known as the Feynman technique is widely used to this day in all subjects. 
   </p>
 
-  <p>His teachings in life carry on to today with his 3 lectures on physics all publically online and free <a href="?page=http://www.feynmanlectures.caltech.edu/" class="#"><strong>http://www.feynmanlectures.caltech.edu/</strong></a></p>
+  <p>His teachings in life carry on to this day with his 3 lectures on physics all publically online and free <a href="?page=http://www.feynmanlectures.caltech.edu/" class="#"><strong>http://www.feynmanlectures.caltech.edu/</strong></a></p>
 
   <p>As well as his books:</p>
 

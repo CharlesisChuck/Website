@@ -2,17 +2,16 @@
 
 						Current List of Tasks
 
-		- clean sidebars
-		- fix SQL in class section  (can check for user_id in sql)
-		- Remove and condense functions (remove repeated data)
 		- Security on schedule
 		- comments
-		- organize 
-		- History
-		- Weekly Reset & Save
 		- get high audit scores
-		- Only Youtube Works
-		- two inputs for schedule-sidebar
+		- schedule restrictions (max size)
+		- contact
+		- combine function files .php
+		- spelling
+		- My picture in sidebar
+		- Speed up updates
+
 
 
 						Secondary Tasks
@@ -23,3 +22,7 @@
 		- put scripts in the footer
 		- speed optimization
 		- Importance Schedule
+
+
+						BUGS
+		- schedule doesn't update if blank

@@ -2,7 +2,7 @@
 
 	<h3>Who Am I?</h3>
 	<p>I'm an electrical engineer from Florida who has since dropped and sold everything to move to sillicon valley for a chance to do something big.</p>
-	<p>Born in Virginia, college in Florida I decided to make my stay at sillicon valley because the culture of the area is incredible. It still amazes me when my Uber driver is also a CEO, and I think it always will.</p>
+	<p>Born in Virginia, college in Florida, I decided to make my stay at sillicon valley because the culture of the area is incredible. It still amazes me when my Uber driver is also a CEO, and I think it always will.</p>
 
 	<h3>Why do I take all these classes?</h3>
 	<p>I've been learning multiple random subjects since I started reading Feynman's work in college. His curiousity is highly contagious and I've since been trying to learn a bit of everything.</p>

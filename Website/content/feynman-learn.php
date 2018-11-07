@@ -4,7 +4,7 @@
 
 	<p>I owe alot to Feynman, he gave me the single most important thing in my life, and that is curiosity.</p>
 
-	<p>Feynman has a terrible way a rooting a deep curiousity into anyone who follows his teachings. From the first book of his I ever read <a href="https://www.amazon.com/gp/product/B00BR40XJ6/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i2" class="#"><strong>QED</strong></a> to his high level electrodynamics lessons. The best parts of his lessons are not the cold hard recitations but his rantings on the side.</p>
+	<p>Feynman has a terrible way a rooting a deep curiousity into anyone who follows his teachings. From the first book of his I ever read <a href="https://www.amazon.com/gp/product/B00BR40XJ6/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i2" class="#"><strong>QED</strong></a> to his high level electrodynamics lessons. Some of the parts of his lessons are not the mathematics but his rantings on the side as well.</p>
 	<p>I wish to include one of these rants as it was truly a fascinating thing when I read it. Deep within his leactures (Vol 2 Chapter 20-3 Scientific Imagination) He talks about what really is light. This is one of my favorite rants of his because he just finished torturing you with high level math for days just to pull this out.</p>
 
 	<p>this is a direct copy of the source material. If you have any spare time you should definetly read it!</p>

@@ -104,7 +104,8 @@ function CreateNewUser($input_username,$db)
 	} else {
     echo "Error: " . $sqlusername . "<br>" . $db->error;
 	}
-
+	$schedule_user_id = GetUserId($input_username,$db);
+	NewUser($schedule_user_id,$db);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
