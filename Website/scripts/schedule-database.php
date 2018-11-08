@@ -48,7 +48,8 @@ function GetSchedule($db,$logged_in_user_id,$type)
 			$second_data = $row -> second;
 			$third_data = $row -> third;
 			$list_id = $row -> list_id;
-			Table($first_data,$second_data,$third_data,$list_id,$db,$type);
+			$good_bad = $row -> good_bad;
+			Table($first_data,$second_data,$third_data,$list_id,$db,$type,$good_bad);
 		}
 	}
 	echo '</table><br><br/>';
@@ -248,4 +249,31 @@ function NewUser($logged_in_user_id,$db)
 	}
 }
 
+/////////////////////////////////////////////////////////////////
+
+function SumHours($logged_in_user_id,$db,$hour_type)
+{
+	$hours_sum = 0;
+	$sql_hour_sum = "SELECT * FROM schedule_input 
+	WHERE type = 'hour' AND user_id = '$logged_in_user_id'";
+
+	$result_hour = $db -> query($sql_hour_sum);
+	while($row = $result_hour -> fetch_object() )
+	{
+		$hour_total = $row -> second;
+		$hour_used = $row -> third;
+
+		if($hour_type == 'total'){
+		$hours_sum += $hour_total;
+		}else if($hour_type == 'current'){
+		$hours_sum += $hour_used;
+		}
+		if($hour_type == 'time'){
+			$hour_type_day = 'current';
+			$current_hours_day = SumHours($logged_in_user_id,$db,$hour_type_day);
+			$hours_sum = ($current_hours_day%24);
+		}
+	}
+	return $hours_sum;
+}
 ?>

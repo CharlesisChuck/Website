@@ -157,7 +157,7 @@ function DeleteButton($list_id,$db)
 
 echo'
 <form method="post">
-Current: <input type="radio" name="delete'.$list_id.'" value="delete">
+Delete?: yes<input type="radio" name="delete'.$list_id.'" value="delete">
 <input type="submit" value="Delete">
 </form>
 <br><br/>

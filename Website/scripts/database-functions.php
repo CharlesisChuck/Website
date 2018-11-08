@@ -4,6 +4,19 @@
 
 function InsertSQLForm($logged_in_user_id,$db,$urlfilter,$title,$description,$status,$type,$category)
 {
+	//do not change default notes formatting
+	$create_date = date("m/d/y");
+	$default_notes = 'Previous Location:       Date Last  used:         Date Created:'.$create_date.'
+
+Meta Notes: 
+    - 
+    - 
+
+Video :
+    - 
+    - 
+    -';
+
 	if($urlfilter != NULL)//DELETE ME
 	{
 	$sqlclasses = "INSERT INTO `classes`(`list_id`, `url_id`, `type`, `category`) 
@@ -26,7 +39,7 @@ function InsertSQLForm($logged_in_user_id,$db,$urlfilter,$title,$description,$st
 		$list_id = $row -> list_id;
 	}
 
-	$sqluserclasses = "INSERT INTO `user_classes`(`list_id`, `user_id`, `title`, `description`, `notes`, `status`) VALUES ($list_id,'$logged_in_user_id','$title','$description',NULL,'$status')";
+	$sqluserclasses = "INSERT INTO `user_classes`(`list_id`, `user_id`, `title`, `description`, `notes`, `status`) VALUES ($list_id,'$logged_in_user_id','$title','$description','$default_notes','$status')";
 
 	if ($db->query($sqluserclasses) === TRUE) {
     echo "YOUR UPDATE WAS SUCESSFUL!";
