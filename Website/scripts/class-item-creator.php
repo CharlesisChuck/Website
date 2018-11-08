@@ -5,10 +5,14 @@
 function FilterData($db,$logged_in_user_id,$page_category,$filter)
 {
 	$content = NULL;
-
+	if(($page_category == 'current')||($page_category == 'completed')){
+	$sql_classes = "SELECT * 
+	FROM classes";
+	}else{
 	$sql_classes = "SELECT * 
 	FROM classes 
-	WHERE `category` = '$page_category' OR `category` = 'current' OR `category` = 'completed' ";
+	WHERE `category` = '$page_category'";
+	}
 
 	$result_classes = $db -> query($sql_classes);
 	while($row = $result_classes -> fetch_object() )
@@ -32,6 +36,7 @@ function FilterData($db,$logged_in_user_id,$page_category,$filter)
 
 			if (($status == $filter)) 
 			{
+					
 				//we have passed all checks and will now create the item
 				ItemCapsule($status,$notes,$description,$title,$type,$url_id,$category,$list_id,$db);
 				$content = "Content Found"; //Content found!
