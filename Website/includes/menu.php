@@ -9,6 +9,7 @@
    <li><a href="?page=learn-creator&page_category=buissness">Buissness</a></li>
    <li><a href="?page=learn-creator&page_category=computer-science">Computer Science</a></li>
    <li><a href="?page=learn-creator&page_category=physics">Physics</a></li>
+   <li><a href="?page=learn-creator&page_category=electronics">Electronics</a></li>
    <li><a href="?page=learn-creator&page_category=mechanics">Mechanics</a></li>
    <li><a href="?page=learn-creator&page_category=webdev">Web Development</a></li>
    <li><a href="?page=learn-creator&page_category=completed">Completed Classes</a></li>

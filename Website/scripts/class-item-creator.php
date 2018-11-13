@@ -134,7 +134,7 @@ function NoteCreator($list_id,$db)
 	$previousNotes = GetPreviousNotes($list_id,$db);
 	echo '
 <form method="post" >
-<textarea rows="25" cols="130" name="notes'.$list_id.'">'.$previousNotes.'</textarea>
+<textarea rows="25" cols="130" name="notes'.$list_id.'">'.htmlspecialchars_decode($previousNotes, ENT_QUOTES).'</textarea>
 <input type="submit" value="Save Notes">
 </form>
 ';
@@ -144,8 +144,7 @@ if (empty($_POST['notes'.$list_id])) {
     } else
     {
     	
-        $notes = $_POST['notes'.$list_id];
-
+        $notes = htmlspecialchars($_POST['notes'.$list_id], ENT_QUOTES);
         UpdateNotes($notes,$list_id,$db);
         echo "<meta http-equiv='refresh' content='0'>";	
     }

@@ -123,10 +123,13 @@ $good_bad = NULL;
   if (empty($_POST['Schedule_Create_Task'])) {
   } else
   {
-    $second = 1;
+    if(($logged_in_user_id != 0) && ($logged_in_user_id != NULL))
+    {
+      $second = 1;
       $MyUpdateStatus = $_POST['Schedule_Create_Task']; 
-     ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
-     echo "<meta http-equiv='refresh' content='0'>";  
+      ScheduleInput($first,$second,$third,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
+      echo "<meta http-equiv='refresh' content='0'>";  
+   }
       
   }
 
@@ -155,11 +158,14 @@ $good_bad = NULL;
   if (empty($_POST['Schedule_Create_Hour'])) {
   } else
   {
-    $good_bad = $_POST['good_bad'];
-    $type = 'hour';
+     if(($logged_in_user_id != 0) && ($logged_in_user_id != NULL))
+    {
+      $good_bad = $_POST['good_bad'];
+      $type = 'hour';
       $MyUpdateStatus = $_POST['Schedule_Create_Hour']; 
-     ScheduleInput($first_hour,$second_hour,$third_hour,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
-     echo "<meta http-equiv='refresh' content='0'>"; 
+      ScheduleInput($first_hour,$second_hour,$third_hour,$logged_in_user_id,$db,$type,$MyUpdateStatus,$good_bad);
+      echo "<meta http-equiv='refresh' content='0'>";
+    } 
   }
 ?>
 

@@ -39,23 +39,12 @@ $logged_in_user_id = $_SESSION['idlogin'];
 	echo $Total;  
 	?> </li>
 
-	<li>Youtube Playlists: <?php 
-	$tag = 'yt-playlist';
-	$Total = ClassesCount($logged_in_user_id, $db, $tag);
+	<li>All Site Wide: <?php 
+	$tag = 'all';
+	$Total = CountEntries($logged_in_user_id, $db, $tag);
 	echo $Total;  
 	?> </li>
 
-	<li>Web Development Items: <?php 
-	$tag = 'webdev';
-	$Total = ClassesCount($logged_in_user_id, $db, $tag);
-	echo $Total;  
-	?> </li>
-
-	<li>Computer Science Items: <?php 
-	$tag = 'computer-science';
-	$Total = ClassesCount($logged_in_user_id, $db, $tag);
-	echo $Total;  
-	?> </li>
 </ul>
 
 </div>

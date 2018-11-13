@@ -1,14 +1,14 @@
-							NEED DOCUMENT
+						NEED DOCUMENT
+
+
 
 						Current List of Tasks
 
 		- Security on schedule
 		- comments
 		- get high audit scores
-		- schedule restrictions (max size)
 		- contact
 		- combine function files .php
-		- spelling
 		- My picture in sidebar
 		- Speed up updates
 
@@ -21,8 +21,13 @@
 		- put all php requests into one file to speed up
 		- put scripts in the footer
 		- speed optimization
-		- Importance Schedule
+
 
 
 						BUGS
 		- schedule doesn't update if blank
+
+
+
+						IDEAS
+		- saved history data for user is outputted in clickable list formats that expand with jquery

@@ -1141,19 +1141,19 @@ tr:hover {background-color: #f5f5f5;}
 
 .ui_hour {
 	position:absolute;
-	left:0px;
+	left:-15px;
 	top: -150px;
 }
 
 .ui_week {
 	position: absolute;
-	left: 460px;
+	left: 465px;
 	top: -18px;
 }
 
 .ui_day{
 	position:absolute;
-	left:230px;
+	left:235px;
 	top:-18px;
 }
 

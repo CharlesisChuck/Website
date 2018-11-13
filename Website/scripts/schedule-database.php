@@ -202,9 +202,10 @@ function HistoryScheduleGet($logged_in_user_id,$db)
 
 //////////////////////////////////////////////////////////////////////////////////
 
-function HistoryScheduleSave($logged_in_user_id,$db)
+function HistoryScheduleSave($logged_in_user_id,$db,$type)
 {
-	$current_time = date("y/m/d");
+
+	$current_time = date("y/m/d ").$type;
 
 	$data = 'total';
 	$save_ratio = RatioScheduleGet($logged_in_user_id,$data,$db);
@@ -224,11 +225,20 @@ function HistoryScheduleSave($logged_in_user_id,$db)
 
 function ClearSaveReset($logged_in_user_id,$db,$type)
 {
-	HistoryScheduleSave($logged_in_user_id,$db);
+	HistoryScheduleSave($logged_in_user_id,$db,$type);
 
-	$sql_reset = "DELETE FROM `schedule_input` 
-	WHERE type = '$type'";
-	
+	$blank = '0';
+
+	if($type == 'hour'){
+		$sql_reset = "UPDATE `schedule_input` 
+		SET `third` = '$blank'
+		WHERE type = 'hour'";
+	}
+	else {
+		$sql_reset = "DELETE FROM `schedule_input` 
+		WHERE type = '$type'";
+	}
+
 	if ($db->query($sql_reset) === TRUE) {
 	} else {
     echo "Error: " . $sql_reset . "<br>" . $db->error;

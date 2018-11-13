@@ -6,6 +6,11 @@ function InsertSQLForm($logged_in_user_id,$db,$urlfilter,$title,$description,$st
 {
 	//do not change default notes formatting
 	$create_date = date("m/d/y");
+	if($status == 'completed'){
+		$default_notes = 'Date Created:'.$create_date. 
+		' 
+		This is a course I have previously completed and I am adding it here for future reference.';
+	}else {
 	$default_notes = 'Previous Location:       Date Last  used:         Date Created:'.$create_date.'
 
 Meta Notes: 
@@ -16,6 +21,7 @@ Video :
     - 
     - 
     -';
+	}
 
 	if($urlfilter != NULL)//DELETE ME
 	{
@@ -79,7 +85,7 @@ function UpdateNotes($notes,$list_id,$db)
     } else {
 
 	$sql_note_update = "UPDATE user_classes 
-	SET notes ='$notes' 
+	SET notes ='".$notes."' 
 	WHERE list_id = ".$list_id;
 
 	if ($db->query($sql_note_update) === TRUE) {
@@ -141,10 +147,13 @@ function GetUserId($username,$db)
 function CountEntries($logged_in_user_id,$db, $tag)
 {
 	$total = 0;
+	if ($tag == 'all'){
+		$sql_user_classes = "SELECT * FROM user_classes";
+	}else{
+		$sql_user_classes = "SELECT * FROM user_classes
+		WHERE user_id = '$logged_in_user_id'";
+	}
 
-	$sql_user_classes = "SELECT * FROM user_classes
-	WHERE user_id = '$logged_in_user_id'";
-	
 	$result_user_classes  = $db -> query($sql_user_classes);
 	while($row = $result_user_classes  -> fetch_object() )
 	{//future things we can check
@@ -159,7 +168,10 @@ function CountEntries($logged_in_user_id,$db, $tag)
 		} else if($tag == $status)
 		{
 			$total += 1;
-		}  									
+		} else if ($tag == 'all')
+		{
+			$total += 1;
+		}								
 	}		
 	return $total;
 }
@@ -191,6 +203,9 @@ function ClassesCount($logged_in_user_id,$db, $tag)
 					{
 						$total += 1;
 					} else if ($tag == $category)
+					{
+						$total += 1;
+					} else if ($tag == 'all')
 					{
 						$total += 1;
 					}

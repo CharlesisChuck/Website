@@ -11,9 +11,12 @@ if (empty($_POST["schedule_update"])) {
     }
 if (empty($_POST["schedule_reset"])) {
     } else{
+    	if(($logged_in_user_id != 0) && ($logged_in_user_id != NULL))
+    	{
     	$reset_type = $_POST["reset_item"];
     	ClearSaveReset($logged_in_user_id,$db,$reset_type);
 		echo "<meta http-equiv='refresh' content='0'>";	
+    	}
     }
 
 ?>
@@ -23,7 +26,7 @@ if (empty($_POST["schedule_reset"])) {
 	<div class="reset_schedule">
 	<form method="post">
 		<select name="reset_item">
-			<option name="none">Don't Reset</option>
+			<option name="Save">No Reset</option>
 			<option value="hour">Weekly Hours</option>
 			<option value="day">Daily Tasks</option>
 			<option value="week">Weekly Tasks</option>

@@ -44,6 +44,7 @@
   <option value="feynman">Feynman</option>
   <option value="webdev">Web Development</option>
   <option value="mechanics">Mechanics</option>
+  <option value="electronics">EE</option>
   <option value="physics">Physics</option>
   <option value="computer-science">Computer Science</option>
   <option value="buissness">Buissness</option>
